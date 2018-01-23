@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Propietarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha nacimiento</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Direccion</th>
+      <th>Comuna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @propietarios.each do |propietario| %>
+      <tr>
+        <td><%= propietario.nombre %></td>
+        <td><%= propietario.fecha_nacimiento %></td>
+        <td><%= propietario.email %></td>
+        <td><%= propietario.telefono %></td>
+        <td><%= propietario.direccion %></td>
+        <td><%= propietario.comuna %></td>
+        <td><%= link_to 'Show', propietario %></td>
+        <td><%= link_to 'Edit', edit_propietario_path(propietario) %></td>
+        <td><%= link_to 'Destroy', propietario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Propietario', new_propietario_path %>
