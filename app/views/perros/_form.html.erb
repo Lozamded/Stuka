@@ -34,6 +34,13 @@
     <%= form.date_select :fecha_adopcion, id: :perro_fecha_adopcion %>
   </div>
 
+
+  <div class="field">
+    <%= form.label :propietario_id %>
+    <%= form.text_field :propietario_id, id: :perro_propietario_id %>
+  </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -17,6 +17,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_field :rut1, id: :rut1 %>-
+    <%= form.text_field :rut2, id: :rut2 %>
+    <% form.text_field :rut, id: :rut3 %>
+  </div>
+
+  <div class="field">
     <%= form.label :fecha_nacimiento %>
     <%= form.date_select :fecha_nacimiento, id: :propietario_fecha_nacimiento %>
   </div>
