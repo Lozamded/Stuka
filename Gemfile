@@ -27,6 +27,9 @@ gem 'autoprefixer-rails'
 
 gem 'jquery-rails'
 
+gem 'cocoon'
+
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
