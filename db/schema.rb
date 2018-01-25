@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125135625) do
+ActiveRecord::Schema.define(version: 20180125172534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20180125135625) do
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "consulta_id"
+    t.index ["consulta_id"], name: "index_boleta_on_consulta_id"
   end
 
   create_table "consulta", force: :cascade do |t|
@@ -28,6 +30,12 @@ ActiveRecord::Schema.define(version: 20180125135625) do
     t.text "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "veterinario_id"
+    t.bigint "perro_id"
+    t.bigint "procedimiento_id"
+    t.index ["perro_id"], name: "index_consulta_on_perro_id"
+    t.index ["procedimiento_id"], name: "index_consulta_on_procedimiento_id"
+    t.index ["veterinario_id"], name: "index_consulta_on_veterinario_id"
   end
 
   create_table "gastos", force: :cascade do |t|
@@ -44,6 +52,8 @@ ActiveRecord::Schema.define(version: 20180125135625) do
     t.bigint "precio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "proveedor_id"
+    t.index ["proveedor_id"], name: "index_insumos_on_proveedor_id"
   end
 
   create_table "perros", force: :cascade do |t|
@@ -90,5 +100,37 @@ ActiveRecord::Schema.define(version: 20180125135625) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "type", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "veterinarios", force: :cascade do |t|
+    t.text "nombre"
+    t.date "fecha_nacimiento"
+    t.text "especialidad"
+    t.text "email"
+    t.text "telefono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "boleta", "consulta", column: "consulta_id"
+  add_foreign_key "consulta", "perros"
+  add_foreign_key "consulta", "procedimientos"
+  add_foreign_key "consulta", "veterinarios"
+  add_foreign_key "insumos", "proveedors"
   add_foreign_key "perros", "propietarios"
 end

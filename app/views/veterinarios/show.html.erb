@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @veterinario.nombre %>
+</p>
+
+<p>
+  <strong>Fecha nacimiento:</strong>
+  <%= @veterinario.fecha_nacimiento %>
+</p>
+
+<p>
+  <strong>Especialidad:</strong>
+  <%= @veterinario.especialidad %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @veterinario.email %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @veterinario.telefono %>
+</p>
+
+<%= link_to 'Edit', edit_veterinario_path(@veterinario) %> |
+<%= link_to 'Back', veterinarios_path %>

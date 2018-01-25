@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  fecha_nacimiento: 2018-01-25
+  especialidad: MyText
+  email: MyText
+  telefono: MyText
+
+two:
+  nombre: MyText
+  fecha_nacimiento: 2018-01-25
+  especialidad: MyText
+  email: MyText
+  telefono: MyText
