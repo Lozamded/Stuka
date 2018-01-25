@@ -1,0 +1,37 @@
+<%= form_with(model: proveedor, local: true) do |form| %>
+  <% if proveedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+
+      <ul>
+      <% proveedor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_area :nombre, id: :proveedor_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :proveedor_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email, id: :proveedor_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono %>
+    <%= form.text_area :telefono, id: :proveedor_telefono %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -18,10 +18,21 @@
 
   <div class="field">
     <%= form.label :rut %>
-    <%= form.text_field :rut1, id: :rut1 %>-
-    <%= form.text_field :rut2, id: :rut2 %>
-    <% form.text_field :rut, id: :rut3 %>
+    <script type="text/javascript">
+    function generateRut()
+    {
+        document.getElementById('rut_full').innerText =
+            document.getElementById('rut').value + '-' +
+            document.getElementById('verificador').value;
+    }
+    </script>
+
+    <input type="text" id="rut" onkeyup="generateRut(12786596-7)" />-
+    <input type="text" id="verificador" onkeyup="generateRut()" /><br/>
+    Rut = <span id="rut_full" />
+    <%= form.text_field :rut , id: :propietario_rut %>
   </div>
+
 
   <div class="field">
     <%= form.label :fecha_nacimiento %>
@@ -30,12 +41,12 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :propietario_email %>
+    <%= form.email_field :email, id: :propietario_email %>
   </div>
 
   <div class="field">
     <%= form.label :telefono %>
-    <%= form.text_field :telefono, id: :propietario_telefono %>
+    <%= form.telephone_field :telefono, id: :propietario_telefono %>
   </div>
 
   <div class="field">

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @insumo.nombre %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @insumo.tipo %>
+</p>
+
+<p>
+  <strong>Presentacion:</strong>
+  <%= @insumo.presentacion %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @insumo.precio %>
+</p>
+
+<%= link_to 'Edit', edit_insumo_path(@insumo) %> |
+<%= link_to 'Back', insumos_path %>

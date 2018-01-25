@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @gasto.descripcion %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @gasto.precio %>
+</p>
+
+<%= link_to 'Edit', edit_gasto_path(@gasto) %> |
+<%= link_to 'Back', gastos_path %>

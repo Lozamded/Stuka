@@ -1,0 +1,32 @@
+<%= form_with(model: boletum, local: true) do |form| %>
+  <% if boletum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(boletum.errors.count, "error") %> prohibited this boletum from being saved:</h2>
+
+      <ul>
+      <% boletum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, id: :boletum_fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.text_field :valor, id: :boletum_valor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :boletum_descripcion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

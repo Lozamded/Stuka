@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Boleta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Valor</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boleta.each do |boletum| %>
+      <tr>
+        <td><%= boletum.fecha %></td>
+        <td><%= boletum.valor %></td>
+        <td><%= boletum.descripcion %></td>
+        <td><%= link_to 'Show', boletum %></td>
+        <td><%= link_to 'Edit', edit_boletum_path(boletum) %></td>
+        <td><%= link_to 'Destroy', boletum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Boletum', new_boletum_path %>

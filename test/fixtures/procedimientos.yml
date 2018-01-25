@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  precio: 
+  precio_sruka: 
+  precio_costo: MyString
+  bigint: MyString
+
+two:
+  descripcion: MyText
+  precio: 
+  precio_sruka: 
+  precio_costo: MyString
+  bigint: MyString

@@ -1,0 +1,38 @@
+<%= form_with(model: procedimiento, local: true) do |form| %>
+  <% if procedimiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(procedimiento.errors.count, "error") %> prohibited this procedimiento from being saved:</h2>
+
+      <ul>
+      <% procedimiento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :procedimiento_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio %>
+    <%= form.text_field :precio, id: :procedimiento_precio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_sruka %>
+    <%= form.text_field :precio_sruka, id: :procedimiento_precio_sruka %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_costo %>
+    <%= form.text_field :precio_costo, id: :procedimiento_precio_costo %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
