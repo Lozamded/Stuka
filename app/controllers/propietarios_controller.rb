@@ -1,5 +1,6 @@
 class PropietariosController < ApplicationController
   before_action :set_propietario, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /propietarios
   # GET /propietarios.json

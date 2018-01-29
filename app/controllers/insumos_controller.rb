@@ -1,5 +1,6 @@
 class InsumosController < ApplicationController
   before_action :set_insumo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /insumos
   # GET /insumos.json

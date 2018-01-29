@@ -1,5 +1,6 @@
 class VeterinariosController < ApplicationController
   before_action :set_veterinario, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /veterinarios
   # GET /veterinarios.json
@@ -69,6 +70,6 @@ class VeterinariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veterinario_params
-      params.require(:veterinario).permit(:nombre, :fecha_nacimiento, :especialidad, :email, :telefono)
+      params.require(:veterinario).permit(:nombre,:apodo , :fecha_nacimiento, :especialidad, :email, :telefono)
     end
 end

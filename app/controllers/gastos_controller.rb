@@ -1,5 +1,6 @@
 class GastosController < ApplicationController
   before_action :set_gasto, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /gastos
   # GET /gastos.json
