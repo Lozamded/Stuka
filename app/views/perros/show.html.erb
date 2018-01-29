@@ -20,5 +20,15 @@
   <%= @perro.fecha_adopcion %>
 </p>
 
+<p>
+  <strong>Nombre del propietario:</strong>
+  <%=  %>
+</p>
+
+<p>
+  <strong>Id del propietario:</strong>
+  <%= @perro.propietario_id %>
+</p>
+
 <%= link_to 'Edit', edit_perro_path(@perro) %> |
 <%= link_to 'Back', perros_path %>

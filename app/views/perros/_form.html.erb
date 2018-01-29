@@ -34,14 +34,14 @@
     <%= form.date_select :fecha_adopcion, id: :perro_fecha_adopcion %>
   </div>
 
-
   <div class="field">
-    <%= form.label :propietario_id %>
-    <%= form.text_field :propietario_id, id: :perro_propietario_id %>
-  </div>
-
+    <%= form.label :propietario_id %>  
+    <%= form.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
+  </div>  
 
   <div class="actions">
     <%= form.submit %>
+   
   </div>
-<% end %>
+
+<%end%>

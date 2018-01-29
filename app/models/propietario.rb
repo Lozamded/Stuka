@@ -1,3 +1,3 @@
 class Propietario < ApplicationRecord
-    has_many perros
+    belongs_to :perro
 end
