@@ -1,5 +1,6 @@
 <h1>Stuka</h1>
-<h2>bienvenido <%= current_user%></h2>
+<h2>bienvenido <%= current_user.email %></h2>
+<%= link_to "Cerrar sesion" , destroy_user_session_path, :method=>:delete %>
 <h3>que desea hacer?</h3>
 
 

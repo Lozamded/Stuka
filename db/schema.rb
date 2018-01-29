@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20180125172534) do
     t.bigint "precio"
     t.bigint "precio_sruka"
     t.string "precio_costo"
-    t.string "bigint"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
