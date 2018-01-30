@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles perro</h4>
+      </div>
+        <div class="modal-body">
+            <p>
+                <strong>Nombre:</strong>
+                <%= @perro.nombre %>
+            </p>
+
+            <p>
+                <strong>Fecha ingreso:</strong>
+                <%= @perro.fecha_ingreso %>
+            </p>
+
+            <p>
+                <strong>Fecha nacimiento:</strong>
+                <%= @perro.fecha_nacimiento %>  
+            </p>
+
+            <p>
+                <strong>Fecha adopcion:</strong>
+                <%= @perro.fecha_adopcion %>
+            </p>
+
+            <p>
+                <strong>Nombre del propietario:</strong>
+                <%=  %>
+            </p>
+
+            <p>
+                <strong>Id del propietario:</strong>
+                <%= @perro.propietario_id %>
+            </p>
+
+            <%= link_to 'Edit', edit_perro_path(@perro) %> |
+            <%= link_to 'Back', perros_path %>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

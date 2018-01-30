@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div id="myModal" class="modal fade" tabindex="-1">
+<div id="newModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -40,7 +40,7 @@
         <div class="field">
             <%= f.label :fecha_adopcion %>
             <label>
-            <input type="checkbox" id="cbox1" value="sin adoptar"> Perro sin adoptar
+                <input type="checkbox" id="cbox1" value="sin adoptar"> Perro sin adoptar
             </label><br>
             <%= f.date_select :fecha_adopcion, id: :perro_fecha_adopcion %>
         </div>
@@ -48,7 +48,7 @@
 
         <div class="field">
             <%= f.label :propietario_id %>  
-            <%= f.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
+            <%= f.select :propietario_id, options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, 7 ) %>
         </div>  
 
 

@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div id="editModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar perro</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @perro, :remote=> true do |f| %>
+            <% if @perro.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
+                        <ul>
+                            <% @perro.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                </div>
+            <% end %>
+
+           <%= render 'form', perro: @perro %>
+
+        <%end%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

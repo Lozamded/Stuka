@@ -26,9 +26,17 @@
         <td><%= perro.fecha_nacimiento %></td>
         <td><%= perro.fecha_adopcion %></td>
         <td><%= perro.propietario_id %></td>
-        <td><%= link_to 'Show', perro %></td>
-        <td><%= link_to 'Edit', edit_perro_path(perro) %></td>
-        <td><%= link_to 'Destroy', perro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to perro, :remote=>true do %>
+            Detalle<span class="fa fa-eye"></span>
+          <%end%>
+        </td>
+        <td>
+          <%= link_to edit_perro_path(perro), :remote=>true do%>
+            Editar<span class="fa fa-pencil-square-o"></span>
+          <%end%>
+        </td>
+        <td><%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,3 +47,5 @@
 <%= link_to 'Volver', welcome_index_path %>
 
 <div id ="new-perro" style = "display:noone;"></div>
+<div id ="edit-perro" style = "display:noone;"></div>
+<div id ="show-perro" style = "display:noone;"></div>
