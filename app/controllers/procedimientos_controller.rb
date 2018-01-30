@@ -11,15 +11,24 @@ class ProcedimientosController < ApplicationController
   # GET /procedimientos/1
   # GET /procedimientos/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /procedimientos/new
   def new
     @procedimiento = Procedimiento.new
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /procedimientos/1/edit
   def edit
+    respond_to do |f|
+      f.js
+    end
   end
 
   # POST /procedimientos

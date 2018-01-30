@@ -19,7 +19,7 @@
 
   <div class="field">
     <%= form.label :fecha_nacimiento %>
-    <%= form.date_select :fecha_nacimiento, id: :veterinario_fecha_nacimiento %>
+    <%= form.date_field :fecha_nacimiento, id: :veterinario_fecha_nacimiento %>
   </div>
 
   <div class="field">
@@ -29,12 +29,12 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_area :email, id: :veterinario_email %>
+    <%= form.email_field :email, id: :veterinario_email %>
   </div>
 
   <div class="field">
     <%= form.label :telefono %>
-    <%= form.text_area :telefono, id: :veterinario_telefono %>
+    <%= form.telephone_field. :telefono, id: :veterinario_telefono %>
   </div>
 
   <div class="actions">

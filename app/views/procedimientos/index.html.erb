@@ -2,6 +2,9 @@
 
 <h1>Procedimientos</h1>
 
+<%= link_to new_procedimiento_path , :remote=>true do%> Agregar nuevo procedimiento.
+    <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
+<%end%>
 <table>
   <thead>
     <tr>
@@ -20,14 +23,25 @@
         <td><%= procedimiento.precio %></td>
         <td><%= procedimiento.precio_sruka %></td>
         <td><%= procedimiento.precio_costo %></td>
-        <td><%= link_to 'Show', procedimiento %></td>
-        <td><%= link_to 'Edit', edit_procedimiento_path(procedimiento) %></td>
-        <td><%= link_to 'Destroy', procedimiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+        <td>
+          <%= link_to procedimiento, :remote=> true do %>
+            Detalle <span class="fa fa-eye"></span>
+          <%end%>
+        </td>
+        <td>
+          <%= link_to edit_procedimiento_path(procedimiento), :remote=> true do %>
+            Editar <span class="fa fa-pencil-square-o">
+          <%end%>
+        </td>
+        <td><%= link_to 'borrar', procedimiento, method: :delete, data: { confirm: '¿Seguro?' } %></td></tr>
+    <%end%>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Procedimiento', new_procedimiento_path %>
+<%= link_to 'Volver', welcome_index_path %>
+
+<div id ="new-procedimiento" style = "display:noone;"></div>
+<div id ="edit-procedimiento" style = "display:noone;"></div>
+<div id ="show-procedimiento" style = "display:noone;"></div>

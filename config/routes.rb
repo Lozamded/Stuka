@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
-
-  resources :veterinarios
   get 'welcome/index'
 
+  resources :veterinarios
   resources :consulta
   resources :gastos
   resources :insumos

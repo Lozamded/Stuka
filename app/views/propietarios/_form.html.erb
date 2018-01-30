@@ -18,18 +18,6 @@
 
   <div class="field">
     <%= form.label :rut %>
-    <script type="text/javascript">
-    function generateRut()
-    {
-        document.getElementById('rut_full').innerText =
-            document.getElementById('rut').value + '-' +
-            document.getElementById('verificador').value;
-    }
-    </script>
-
-    <input type="text" id="rut" onkeyup="generateRut(12786596-7)" />-
-    <input type="text" id="verificador" onkeyup="generateRut()" /><br/>
-    Rut = <span id="rut_full" />
     <%= form.text_field :rut , id: :propietario_rut %>
   </div>
 

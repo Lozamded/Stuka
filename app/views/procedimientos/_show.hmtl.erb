@@ -1,0 +1,52 @@
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles procedimiento</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @procedimiento, :remote=> true do |f| %>
+            <% if @procedimiento.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@procedimiento.errors.count, "error") %> prohibited this perro from being saved:</h2>
+                        <ul>
+                            <% @procedimiento.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                </div>
+            <% end %>
+
+            <p>
+              <strong>Descripcion:</strong>
+              <%= @procedimiento.descripcion %>
+            </p>
+
+            <p>
+              <strong>Precio:</strong>
+              <%= @procedimiento.precio %>
+            </p>
+
+            <p>
+              <strong>Precio sruka:</strong>
+              <%= @procedimiento.precio_sruka %>
+            </p>
+
+            <p>
+              <strong>Precio costo:</strong>
+              <%= @procedimiento.precio_costo %>
+            </p>
+
+
+        <%end%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

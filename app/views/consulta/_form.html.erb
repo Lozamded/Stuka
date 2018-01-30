@@ -13,14 +13,13 @@
 
   <div class="field">
     <%= form.label :fecha %>
-    <%= form.date_select :fecha, id: :consultum_fecha %>
+    <%= form.date_field :fecha, id: :consultum_fecha %>
   </div>
 
   <div class="field">
     <%= form.label :tipo %>
-    <%= form.text_area :tipo, id: :consultum_tipo %>
+    <%= form.select :tipo, ['interna','Externa'], {include_blank: "Seleccione"} %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
