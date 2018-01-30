@@ -9,7 +9,7 @@
         <h4 class="modal-title">Nuevo Perro</h4>
       </div>
       <div class="modal-body">
-        <%= form_for @perro, :remote=> true do |f| %>
+        <%= form_for @perro, :remote=> true do |form| %>
         <% if @perro.errors.any? %>
             <div id="error_explanation">
             <h2><%= pluralize(@perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
@@ -23,39 +23,49 @@
         <% end %>
 
         <div class="field">
-            <%= f.label :nombre %>
-            <%= f.text_field :nombre, id: :perro_nombre %>
+            <%= form.label :nombre %>
+            <%= form.text_field :nombre, id: :perro_nombre %>
         </div>
 
-        <div class="field">
-            <%= f.label :fecha_ingreso %>
-            <%= f.date_select :fecha_ingreso, id: :perro_fecha_ingreso %>
-        </div>
+            <div class="peso">
+                <%= form.label :peso%>
+                <%= form.number_field :peso, id: :perro_peso%> [Kg]
+            </div> 
+            
+            <div class="porte">
+                <%= form.label :porte%>
+                <%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
+            </div>
 
-        <div class="field">
-            <%= f.label :fecha_nacimiento %>
-            <%= f.date_select :fecha_nacimiento, id: :perro_fecha_nacimiento %>
-        </div>
+            <div class="field">
+                <%= form.label :fecha_ingreso %>
+                <%= form.date_field :fecha_ingreso, :value => Time.now.strftime('%Y-%m-%d'), id: :perro_fecha_ingreso %>
+            </div>
 
-        <div class="field">
-            <%= f.label :fecha_adopcion %>
-            <label>
+            <div class="field">
+                <%= form.label :fecha_nacimiento %>(Estimada)
+                <%= form.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
+            </div>
+
+            <div>
+            </div>
+
+            <div class="field">
+                <%= form.label :fecha_adopcion %>
+                <label>
                 <input type="checkbox" id="cbox1" value="sin adoptar"> Perro sin adoptar
-            </label><br>
-            <%= f.date_select :fecha_adopcion, id: :perro_fecha_adopcion %>
-        </div>
+                </label><br>
+                <%= form.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
+            </div>
 
+            <div class="field">
+                <%= form.label :propietario_id %>  
+                <%= form.select :propietario_id,  options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, 7 ) %>
+            </div>  
 
-        <div class="field">
-            <%= f.label :propietario_id %>  
-            <%= f.select :propietario_id, options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, 7 ) %>
-        </div>  
-
-
-        <div class="actions">
-            <%= f.submit %>
-        
-        </div>
+            <div class="actions">
+                <%= form.submit %>
+            </div>
 
         <%end%>
       </div>

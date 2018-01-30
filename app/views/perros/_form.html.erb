@@ -16,22 +16,33 @@
     <%= form.text_field :nombre, id: :perro_nombre %>
   </div>
 
-  <div class="field">
-    <%= form.label :fecha_ingreso %>
-    <%= form.date_select :fecha_ingreso, id: :perro_fecha_ingreso %>
+  <div class="peso">
+    <%= form.label :peso%>
+    <%= form.number_field :peso, id: :perro_peso%> [Kg]
+  </div>
+  
+  <div class="porte">
+    <%= form.label :porte%>
+    <%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha_nacimiento %>
-    <%= form.date_select :fecha_nacimiento, id: :perro_fecha_nacimiento %>
+    <%= form.label :fecha_ingreso %>
+    <%= form.date_field :fecha_ingreso, :value => Time.now.strftime('%Y-%m-%d'), id: :perro_fecha_ingreso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_nacimiento %>(Estimada)
+    <%= form.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
+  </div>
+
+  <div>
   </div>
 
   <div class="field">
     <%= form.label :fecha_adopcion %>
-    <label>
-      <input type="checkbox" id="cbox1" value="sin adoptar"> Perro sin adoptar
-    </label><br>
-    <%= form.date_select :fecha_adopcion, id: :perro_fecha_adopcion %>
+    <p>(Dejar en blanco si aun no ha sido adoptado)</p>
+    <%= form.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
   </div>
 
   <div class="field">

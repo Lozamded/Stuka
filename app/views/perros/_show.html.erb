@@ -15,6 +15,16 @@
             </p>
 
             <p>
+                <strong>Peso:</strong>
+                <%= @perro.peso %> [Kg]
+            </p>
+            
+            <p>
+                <strong>Tamaño:</strong>
+                <%= @perro.porte %>
+            </p>
+
+            <p>
                 <strong>Fecha ingreso:</strong>
                 <%= @perro.fecha_ingreso %>
             </p>
@@ -31,13 +41,9 @@
 
             <p>
                 <strong>Nombre del propietario:</strong>
-                <%=  %>
+                <%= @perro.propietario.nombre %>
             </p>
 
-            <p>
-                <strong>Id del propietario:</strong>
-                <%= @perro.propietario_id %>
-            </p>
 
             <%= link_to 'Edit', edit_perro_path(@perro) %> |
             <%= link_to 'Back', perros_path %>
