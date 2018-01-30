@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20180129131454) do
     t.bigint "precio"
     t.bigint "precio_sruka"
     t.string "precio_costo"
-    t.string "bigint"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -119,13 +118,13 @@ ActiveRecord::Schema.define(version: 20180129131454) do
 
   create_table "veterinarios", force: :cascade do |t|
     t.text "nombre"
-    t.text "apodo"
     t.date "fecha_nacimiento"
     t.text "especialidad"
     t.text "email"
     t.text "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "apodo"
   end
 
   add_foreign_key "boleta", "consulta", column: "consulta_id"

@@ -16,6 +16,10 @@ class PerrosController < ApplicationController
   # GET /perros/new
   def new
     @perro = Perro.new
+    #--1.times {@perro.propietarios.build}
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /perros/1/edit
