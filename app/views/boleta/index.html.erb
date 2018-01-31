@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Boleta</h1>
-
+<%= link_to new_boletum_path do%> Generar boleta.
+  <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
+<%end%>
 <table>
   <thead>
     <tr>
@@ -20,7 +22,7 @@
         <td><%= boletum.descripcion %></td>
         <td><%= link_to 'Show', boletum %></td>
         <td><%= link_to 'Edit', edit_boletum_path(boletum) %></td>
-        <td><%= link_to 'Destroy', boletum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', boletum, method: :delete, data: { confirm: '¿Eliminar boleta?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +30,9 @@
 
 <br>
 
-<%= link_to 'New Boletum', new_boletum_path %>
+
 <%= link_to 'Volver', welcome_index_path %>
+
+<div id ="new-boleta" style = "display:noone;"></div>
+<div id ="edit-boleta" style = "display:noone;"></div>
+<div id ="show-boleta" style = "display:noone;"></div>
