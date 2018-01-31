@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'adpociones/new'
+
   devise_for :users
   root 'welcome#index'
   get 'welcome/index'

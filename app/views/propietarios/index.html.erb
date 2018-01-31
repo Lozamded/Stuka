@@ -2,6 +2,11 @@
 
 <h1>Propietarios</h1>
 
+<%= link_to new_propietario_path, :remote=>true do%> Agregar nuevo propietario.
+    <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
+<%end%>
+
+
 <table>
   <thead>
     <tr>
@@ -9,8 +14,6 @@
       <th>Fecha nacimiento</th>
       <th>Email</th>
       <th>Telefono</th>
-      <th>Direccion</th>
-      <th>Comuna</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,10 +25,16 @@
         <td><%= propietario.fecha_nacimiento %></td>
         <td><%= propietario.email %></td>
         <td><%= propietario.telefono %></td>
-        <td><%= propietario.direccion %></td>
-        <td><%= propietario.comuna %></td>
-        <td><%= link_to 'Show', propietario %></td>
-        <td><%= link_to 'Edit', edit_propietario_path(propietario) %></td>
+        <td>
+          <%= link_to propietario, :remote=>true do %>Detalle
+            <span class="fa fa-eye"></span>
+          <%end%>
+        </td>
+        <td>
+          <%= link_to edit_propietario_path(propietario), :remote=>true do%>Editar
+            <span class="fa fa-pencil-square-o"></span>
+          <%end%>
+        </td>
         <td><%= link_to 'Destroy', propietario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -34,4 +43,8 @@
 
 <br>
 
-<%= link_to 'New Propietario', new_propietario_path %>
+<%= link_to 'Volver', welcome_index_path %>
+
+<div id ="new-propietario" style = "display:noone;"></div>
+<div id ="edit-propietario" style = "display:noone;"></div>
+<div id ="show-propietario" style = "display:noone;"></div>

@@ -11,15 +11,24 @@ class PropietariosController < ApplicationController
   # GET /propietarios/1
   # GET /propietarios/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /propietarios/new
   def new
     @propietario = Propietario.new
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /propietarios/1/edit
   def edit
+        respond_to do |f|
+      f.js
+    end
   end
 
   # POST /propietarios
@@ -29,7 +38,7 @@ class PropietariosController < ApplicationController
 
     respond_to do |format|
       if @propietario.save
-        format.html { redirect_to @propietario, notice: 'Propietario was successfully created.' }
+        format.html { redirect_to propietarios_url, notice: 'Propietario was successfully created.' }
         format.json { render :show, status: :created, location: @propietario }
       else
         format.html { render :new }
@@ -43,7 +52,7 @@ class PropietariosController < ApplicationController
   def update
     respond_to do |format|
       if @propietario.update(propietario_params)
-        format.html { redirect_to @propietario, notice: 'Propietario was successfully updated.' }
+        format.html { redirect_to propietarios_url, notice: 'Propietario was successfully updated.' }
         format.json { render :show, status: :ok, location: @propietario }
       else
         format.html { render :edit }

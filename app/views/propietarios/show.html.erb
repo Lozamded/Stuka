@@ -27,13 +27,9 @@
 
 <p>
   <strong>Direccion:</strong>
-  <%= @propietario.direccion %>
+  <%= @propietario.direccion %>, <%= @propietario.comuna %>
 </p>
 
-<p>
-  <strong>Comuna:</strong>
-  <%= @propietario.comuna %>
-</p>
 
 <%= link_to 'Edit', edit_propietario_path(@propietario) %> |
 <%= link_to 'Back', propietarios_path %>

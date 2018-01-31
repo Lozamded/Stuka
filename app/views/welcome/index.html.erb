@@ -1,20 +1,21 @@
 <h1>Stuka</h1>
 <h4>bienvenido <%= current_user.email %></h2>
-<%= link_to "Cerrar sesion" , destroy_user_session_path, :method=>:delete %>
+<%= link_to "Cerrar sesión" , destroy_user_session_path, :method=>:delete %>
 <br/>
 <h3>¿Que desea hacer?</h3>
 <br/>
-<h4>Gestion de Perros</h4>
+<h4>Gestión de Perros</h4>
+<h5><%= link_to 'registrar adopciones', adpociones_new_path %></h5>
 <h5><%= link_to 'Perros', perros_path %></h5>
 <h5><%= link_to 'Propietarios', propietarios_path %></h5>
-<h5><%= link_to 'Veterinarios', veterinarios_path %></h5>
 <br/>
-<h4>Gestion medica</h4>
+<h4>Gestión medica</h4>
+<h5><%= link_to 'Veterinarios', veterinarios_path %></h5>
 <h5><%= link_to 'Consultas', consulta_path %></h5>
 <h5><%= link_to 'Procedimientos', procedimientos_path %></h5>
 <br/>
-<h4>Gestion Inventario</h4>
+<h4>Gestión Inventario</h4>
 <h5><%= link_to 'Proveedores', proveedors_path %></h5>
 <h5><%= link_to 'Insumos', insumos_path %></h5>
 <br/>
-<h4><% link_to 'Gestion Usuarios', propietarios_path %></h4>
+<h4><% link_to 'Gestión Usuarios', propietarios_path %></h4>

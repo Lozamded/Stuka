@@ -11,7 +11,9 @@ class PerrosController < ApplicationController
   # GET /perros/1
   # GET /perros/1.json
   def show
-
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /perros/new
@@ -25,7 +27,16 @@ class PerrosController < ApplicationController
 
   # GET /perros/1/edit
   def edit
+    respond_to do |f|
+      f.js
+    end
+  end
 
+  # GET /perros/adoptar
+  def adoptar
+    respond_to do |f|
+      f.js
+    end
   end
 
   # POST /perros
@@ -35,7 +46,7 @@ class PerrosController < ApplicationController
 
     respond_to do |format|
       if @perro.save
-        format.html { redirect_to @perro, notice: 'Perro creado.' }
+        format.html { redirect_to perros_url, notice: 'Perro creado.' }
         format.json { render :show, status: :created, location: @perro }
       else
         format.html { render :new }
@@ -49,7 +60,7 @@ class PerrosController < ApplicationController
   def update
     respond_to do |format|
       if @perro.update(perro_params)
-        format.html { redirect_to @perro, notice: 'Perro Actualizado.' }
+        format.html { redirect_to perros_url, notice: 'Perro Actualizado.' }
         format.json { render :show, status: :ok, location: @perro }
       else
         format.html { render :edit }

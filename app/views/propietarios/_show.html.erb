@@ -1,0 +1,61 @@
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar propietario</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @propietario, :remote=> true do |f| %>
+            <% if @propietario.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@propietario.errors.count, "error") %> prohibited this perro from being saved:</h2>
+                        <ul>
+                            <% @propietario.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                </div>
+            <% end %>
+
+           <p>
+            <strong>Nombre:</strong>
+            <%= @propietario.nombre %>
+            </p>
+
+            <p>
+            <strong>Rut:</strong>
+            <%= @propietario.rut %>
+            </p>
+
+            <p>
+            <strong>Fecha nacimiento:</strong>
+            <%= @propietario.fecha_nacimiento %>
+            </p>
+
+            <p>
+            <strong>Email:</strong>
+            <%= @propietario.email %>
+            </p>
+
+            <p>
+            <strong>Telefono:</strong>
+            <%= @propietario.telefono %>
+            </p>
+
+            <p>
+            <strong>Direccion:</strong>
+            <%= @propietario.direccion %>, <%= @propietario.comuna %>
+            </p>
+
+        <%end%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

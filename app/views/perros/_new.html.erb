@@ -15,24 +15,24 @@
             <h2><%= pluralize(@perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
 
             <ul>
-            <% @perro.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
+                <% @perro.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
             </ul>
-            </div>
+      </div>
         <% end %>
 
         <div class="field">
-            <%= form.label :nombre %>
+            <%= form.label :nombre %><%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
             <%= form.text_field :nombre, id: :perro_nombre %>
         </div>
 
-            <div class="peso">
-                <%= form.label :peso%>
-                <%= form.number_field :peso, id: :perro_peso%> [Kg]
-            </div> 
+        <div class="field">
+            <%= form.label :peso%>
+            <%= form.number_field :peso, id: :perro_peso%> [Kg]
+        </div> 
             
-            <div class="porte">
+            <div class="field">
                 <%= form.label :porte%>
                 <%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
             </div>
