@@ -9,16 +9,17 @@
         <h4 class="modal-title">Detalles perro</h4>
       </div>
         <div class="modal-body">
-            <p>
-                <strong>Nombre:</strong>
-                <%= @perro.nombre %>
-            </p>
+
+          <figure class="figure">
+            <img src="http://www.buscadog.cl/uploads/2016-10-19_09-42-10_19_630.png" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption"><strong>Nombre: </strong> <%= @perro.nombre %></figcaption><br>
+          </figure>
 
             <p>
                 <strong>Peso:</strong>
                 <%= @perro.peso %> [Kg]
             </p>
-            
+
             <p>
                 <strong>Tamaño:</strong>
                 <%= @perro.porte %>
@@ -31,7 +32,7 @@
 
             <p>
                 <strong>Fecha nacimiento:</strong>
-                <%= @perro.fecha_nacimiento %>  
+                <%= @perro.fecha_nacimiento %>
             </p>
 
             <p>
@@ -42,6 +43,11 @@
             <p>
                 <strong>Nombre del propietario:</strong>
                 <%= @perro.propietario.nombre %>
+            </p>
+
+            <p>
+                <strong>Comentario:</strong>
+                <%= @perro.comentario %>
             </p>
 
 

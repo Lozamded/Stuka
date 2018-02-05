@@ -20,7 +20,7 @@
     <%= form.label :peso%>
     <%= form.number_field :peso, id: :perro_peso%> [Kg]
   </div>
-  
+
   <div class="porte">
     <%= form.label :porte%>
     <%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
@@ -36,9 +36,6 @@
     <%= form.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
   </div>
 
-  <div>
-  </div>
-
   <div class="field">
     <%= form.label :fecha_adopcion %>
     <p>(Dejar en blanco si aun no ha sido adoptado)</p>
@@ -46,13 +43,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :propietario_id %>  
+    <%= form.label :comentario %>(Descripción y detalles clínicos)<br>
+    <%= form.text_field :comentario, id: :perro_comentario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :propietario_id %>
     <%= form.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
-  </div>  
+  </div>
 
   <div class="actions">
     <%= form.submit %>
-   
+
   </div>
 
 <%end%>
