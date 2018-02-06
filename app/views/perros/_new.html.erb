@@ -23,8 +23,13 @@
         <% end %>
 
         <div class="field">
-            <%= form.label :nombre %><%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
+            <%= form.label :nombre %>
             <%= form.text_field :nombre, id: :perro_nombre %>
+        </div>
+
+        <div class="field">
+            <%= form.label :picture %>
+            <%= form.file_field :picture, id: :perro_picture %>
         </div>
 
         <div class="field">

@@ -34,7 +34,8 @@
             Editar<span class="fa fa-pencil-square-o"></span>
           <%end%>
         </td>
-        <td><%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %></td>
+        <td>
+          <%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %></td>
         </td>
       </tr>
     <% end %>
@@ -43,7 +44,28 @@
 
 <br>
 
+<%= link_to 'Volver', welcome_index_path %>
 
+<br>
+
+<% @perros.each do |perro| %>
+  <div class="col-4">
+      <figure class="figure">
+        <%= image_tag perro.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
+        <figcaption class="figure-caption"><strong><%= perro.nombre %></strong>
+          <%= link_to perro, :remote=>true do %>
+            <span class="fa fa-eye"></span>
+          <%end%>
+          <%= link_to edit_perro_path(perro), :remote=>true do%>
+            <span class="fa fa-pencil-square-o"></span>
+          <%end%>
+          <%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %>
+        </figcaption>
+      </figure>
+  </div>
+<%end%>
+
+<br>
 
 <%= link_to 'Volver', welcome_index_path %>
 

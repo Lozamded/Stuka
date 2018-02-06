@@ -11,7 +11,7 @@
         <div class="modal-body">
 
           <figure class="figure">
-            <img src="http://www.buscadog.cl/uploads/2016-10-19_09-42-10_19_630.png" class="figure-img img-fluid rounded">
+            <%= image_tag @perro.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
             <figcaption class="figure-caption"><strong>Nombre: </strong> <%= @perro.nombre %></figcaption><br>
           </figure>
 

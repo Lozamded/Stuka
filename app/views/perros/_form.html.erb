@@ -16,6 +16,11 @@
     <%= form.text_field :nombre, id: :perro_nombre %>
   </div>
 
+  <div class="field">
+      <%= form.label :picture %>
+      <%= form.file_field :picture %>
+  </div>
+
   <div class="peso">
     <%= form.label :peso%>
     <%= form.number_field :peso, id: :perro_peso%> [Kg]

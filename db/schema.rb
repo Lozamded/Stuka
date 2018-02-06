@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205031055) do
+ActiveRecord::Schema.define(version: 20180205230010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180205031055) do
     t.bigint "peso"
     t.text "porte"
     t.text "comentario"
+    t.string "picture"
     t.index ["propietario_id"], name: "index_perros_on_propietario_id"
   end
 
@@ -81,7 +82,6 @@ ActiveRecord::Schema.define(version: 20180205031055) do
     t.bigint "precio"
     t.bigint "precio_sruka"
     t.string "precio_costo"
-    t.string "bigint"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
