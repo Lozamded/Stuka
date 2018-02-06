@@ -31,13 +31,23 @@
             </p>
 
             <p>
-                <strong>Fecha nacimiento:</strong>
-                <%= @perro.fecha_nacimiento %>
+                <strong>Edad:</strong>
+                <% fecha = @perro.fecha_nacimiento %>
+                <%if fecha == nil%>
+                  Indeterminada
+                <%else%>
+                  <%= ((Date.today - @perro.fecha_nacimiento) / 365).to_i %> Años
+                <%end%>
             </p>
 
             <p>
                 <strong>Fecha adopcion:</strong>
-                <%= @perro.fecha_adopcion %>
+                <% fecha = @perro.fecha_adopcion %>
+                <%if fecha == nil%>
+                  Perro aun sin adoptar
+                <%else%>
+                  <%= fecha %>
+                <%end%>
             </p>
 
             <p>

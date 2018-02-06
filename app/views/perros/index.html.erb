@@ -50,18 +50,16 @@
 
 <% @perros.each do |perro| %>
   <div class="col-4">
+    <%= link_to perro, :remote=>true do %>
       <figure class="figure">
         <%= image_tag perro.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
-        <figcaption class="figure-caption"><strong><%= perro.nombre %></strong>
-          <%= link_to perro, :remote=>true do %>
-            <span class="fa fa-eye"></span>
-          <%end%>
-          <%= link_to edit_perro_path(perro), :remote=>true do%>
-            <span class="fa fa-pencil-square-o"></span>
-          <%end%>
-          <%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %>
-        </figcaption>
       </figure>
+    <%end%>
+    <figcaption class="figure-caption"><strong><%= perro.nombre %></strong></figcaption>
+    <%= link_to edit_perro_path(perro), :remote=>true do%>
+      <span class="fa fa-pencil-square-o"></span>
+    <%end%>
+      <%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %>
   </div>
 <%end%>
 

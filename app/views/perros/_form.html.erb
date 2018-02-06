@@ -18,7 +18,7 @@
 
   <div class="field">
       <%= form.label :picture %>
-      <%= form.file_field :picture %>
+      <%= form.file_field :picture, id: :perro_picture %>
   </div>
 
   <div class="peso">
@@ -49,7 +49,7 @@
 
   <div class="field">
     <%= form.label :comentario %>(Descripción y detalles clínicos)<br>
-    <%= form.text_field :comentario, id: :perro_comentario %>
+    <%= form.text_area :comentario, id: :perro_comentario %>
   </div>
 
   <div class="field">

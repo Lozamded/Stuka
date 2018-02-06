@@ -48,24 +48,18 @@
             </div>
 
             <div class="field">
-                <%= form.label :fecha_nacimiento %>(Estimada)
+                <%= form.label :fecha_nacimiento %>(Aproximada, para poder estimar la edad del perro)<br>
                 <%= form.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
             </div>
 
-            <div>
-            </div>
-
             <div class="field">
-                <%= form.label :fecha_adopcion %>
-                <label>
-                <input type="checkbox" id="cbox1" value="sin adoptar"> Perro sin adoptar
-                </label><br>
+                <%= form.label :fecha_adopcion %>(Dejar en blanco para perro aun no adoptado)<br>
                 <%= form.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
             </div>
 
             <div class="field">
               <%= form.label :comentario %>(Descripción y detalles clínicos)<br>
-              <%= form.text_field :comentario, id: :perro_comentario %>
+              <%= form.text_area :comentario, id: :perro_comentario %>
             </div>
 
             <div class="field">
