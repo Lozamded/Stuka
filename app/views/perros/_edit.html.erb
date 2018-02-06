@@ -21,7 +21,55 @@
                 </div>
             <% end %>
 
-           <%= render 'form', perro: @perro %>
+            <div class="field">
+              <%= f.label :nombre %>
+              <%= f.text_field :nombre, id: :perro_nombre %>
+            </div>
+
+            <div class="field">
+                <%= f.label :picture %>
+                <%= f.file_field :picture, id: :perro_picture %>
+            </div>
+
+            <div class="peso">
+              <%= f.label :peso%>
+              <%= f.number_field :peso, id: :perro_peso%> [Kg]
+            </div>
+
+            <div class="porte">
+              <%= f.label :porte%>
+              <%= f.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
+            </div>
+
+            <div class="field">
+              <%= f.label :fecha_ingreso %>
+              <%= f.date_field :fecha_ingreso, :value => Time.now.strftime('%Y-%m-%d'), id: :perro_fecha_ingreso %>
+            </div>
+
+            <div class="field">
+              <%= f.label :fecha_nacimiento %>(Estimada)
+              <%= f.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
+            </div>
+
+            <div class="field">
+              <%= f.label :fecha_adopcion %>
+              <p>(Dejar en blanco si aun no ha sido adoptado)</p>
+              <%= f.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
+            </div>
+
+            <div class="field">
+              <%= f.label :comentario %>(Descripción y detalles clínicos)<br>
+              <%= f.text_area :comentario, id: :perro_comentario %>
+            </div>
+
+            <div class="field">
+              <%= f.label :propietario_id %>
+              <%= f.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit %>
+            </div>
 
         <%end%>
       </div>

@@ -27,6 +27,7 @@ class PerrosController < ApplicationController
 
   # GET /perros/1/edit
   def edit
+    @perro = Perro.find params[:id]
     respond_to do |f|
       f.js
     end

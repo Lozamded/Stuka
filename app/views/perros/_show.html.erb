@@ -11,7 +11,7 @@
         <div class="modal-body">
 
           <figure class="figure">
-            <%= image_tag @perro.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
+            <%= image_tag @perro.picture.medium.url, class: 'figure-img img-fluid rounded' %>
             <figcaption class="figure-caption"><strong>Nombre: </strong> <%= @perro.nombre %></figcaption><br>
           </figure>
 
@@ -61,8 +61,10 @@
             </p>
 
 
-            <%= link_to 'Edit', edit_perro_path(@perro) %> |
-            <%= link_to 'Back', perros_path %>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Editar
+              <% link_to edit_perro_path(@perro), :remote=>true%>
+            </button>
+
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
