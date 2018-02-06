@@ -49,7 +49,7 @@
 
             <div class="field">
                 <%= form.label :fecha_nacimiento %>(Aproximada, para poder estimar la edad del perro)<br>
-                <%= form.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
+                <%= form.date_field :fecha_nacimiento, :value => Time.now.strftime('%Y-%m-%d') , id: :perro_fecha_nacimiento %>
             </div>
 
             <div class="field">

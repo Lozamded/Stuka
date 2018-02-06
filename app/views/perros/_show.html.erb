@@ -36,7 +36,13 @@
                 <%if fecha == nil%>
                   Indeterminada
                 <%else%>
-                  <%= ((Date.today - @perro.fecha_nacimiento) / 365).to_i %> Años
+                  <% edad = ((Date.today - @perro.fecha_nacimiento) / 365).to_i %>
+                  <%if edad > 0 %>
+                    <%= edad %> Años
+                  <%else%>
+                    <%edad_meses = Date.today.strftime("%m").to_i  -  (@perro.fecha_nacimiento.strftime("%m")).to_i  %>
+                    <%= edad_meses %> Meses
+                  <%end%>
                 <%end%>
             </p>
 
@@ -59,11 +65,6 @@
                 <strong>Comentario:</strong>
                 <%= @perro.comentario %>
             </p>
-
-
-            <button type="button" class="btn btn-default" data-dismiss="modal">Editar
-              <% link_to edit_perro_path(@perro), :remote=>true%>
-            </button>
 
         </div>
       <div class="modal-footer">
