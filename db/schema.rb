@@ -82,13 +82,13 @@ ActiveRecord::Schema.define(version: 20180205230010) do
     t.bigint "precio"
     t.bigint "precio_sruka"
     t.string "precio_costo"
-    t.string "bigint"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "propietarios", force: :cascade do |t|
     t.string "nombre"
+    t.string "rut"
     t.date "fecha_nacimiento"
     t.string "email"
     t.string "telefono"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 20180205230010) do
     t.string "comuna"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rut"
   end
 
   create_table "proveedors", force: :cascade do |t|
@@ -111,7 +110,6 @@ ActiveRecord::Schema.define(version: 20180205230010) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", default: "", null: false
-    t.string "type", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
