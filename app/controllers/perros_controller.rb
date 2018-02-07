@@ -27,14 +27,18 @@ class PerrosController < ApplicationController
 
   # GET /perros/1/edit
   def edit
-    @perro = Perro.find params[:id]
     respond_to do |f|
       f.js
     end
   end
 
+  # GET /perros/1/detalle
+  def detalle
+    @perros = Perro.all
+  end
+
   # GET /perros/adoptar
-  def adoptar
+  def adopt
     respond_to do |f|
       f.js
     end
@@ -88,6 +92,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :picture, :fecha_ingreso, :fecha_nacimiento, :fecha_adopcion, :peso, :porte, :comentario , :propietario_id, propietario_atributes: [:id,:nombre,:_destroy])
+      params.require(:perro).permit(:nombre, :picture, :fecha_ingreso, :fecha_nacimiento, :fecha_adopcion, :fecha_defuncion, :peso, :porte, :comentario , :propietario_id, propietario_atributes: [:id,:nombre,:_destroy])
     end
 end

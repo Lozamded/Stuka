@@ -43,7 +43,7 @@
 
             <div class="field">
               <%= f.label :fecha_ingreso %>
-              <%= f.date_field :fecha_ingreso, :value => Time.now.strftime('%Y-%m-%d'), id: :perro_fecha_ingreso %>
+              <%= f.date_field :fecha_ingreso, id: :perro_fecha_ingreso %>
             </div>
 
             <div class="field">
@@ -55,6 +55,12 @@
               <%= f.label :fecha_adopcion %>
               <p>(Dejar en blanco si aun no ha sido adoptado)</p>
               <%= f.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
+            </div>
+
+            <div class="field">
+              <%= f.label :fecha_defuncion %>
+              <p>(Dejar en blanco para perro vivo)</p>
+              <%= f.date_field :fecha_defuncion, id: :perro_fecha_defuncion %>
             </div>
 
             <div class="field">

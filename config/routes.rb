@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   resources :boleta
   resources :proveedors
   resources :procedimientos
-  resources :perros
+  resources :perros do
+    get 'detalles', to: 'perros#detalle'
+    get 'adopt', to: 'perros#adopt'
+  end
   resources :propietarios
 
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

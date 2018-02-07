@@ -49,9 +49,18 @@
             <p>
                 <strong>Fecha adopcion:</strong>
                 <% fecha = @perro.fecha_adopcion %>
-                <%if fecha == nil%>
+                <%if fecha == nil %>
                   Perro aun sin adoptar
                 <%else%>
+                  <%= fecha %>
+                <%end%>
+            </p>
+
+            <p>
+                <% fecha_def = @perro.fecha_defuncion %>
+                <%if fecha_def == nil %>
+                <%else%>
+                  <strong>Fecha defuncion:</strong>
                   <%= fecha %>
                 <%end%>
             </p>
@@ -62,8 +71,12 @@
             </p>
 
             <p>
+              <% comentario = @perro.comentario  %>
+              <%if comentario == nil or comentario == '' %>
+              <%else%>
                 <strong>Comentario:</strong>
                 <%= @perro.comentario %>
+              <%end%>
             </p>
 
         </div>
