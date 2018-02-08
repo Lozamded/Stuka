@@ -36,7 +36,12 @@
                 <%if fecha == nil%>
                   Indeterminada
                 <%else%>
-                  <% edad = ((Date.today - @perro.fecha_nacimiento) / 365).to_i %>
+                  <% defuncion = @perro.fecha_defuncion%>
+                  <%if defuncion == nil  %>
+                    <% edad = ((Date.today - @perro.fecha_nacimiento) / 365).to_i %>
+                  <%else%>
+                    <% edad = ((@perro.fecha_defuncion - @perro.fecha_nacimiento) / 365).to_i %>
+                  <%end%>
                   <%if edad > 0 %>
                     <%= edad %> Años
                   <%else%>
@@ -78,6 +83,14 @@
                 <%= @perro.comentario %>
               <%end%>
             </p>
+
+            <!-- Modal
+            <a href="#editModal" data-toggle="modal" data-dismiss="modal">
+              Editar
+            </a>
+            -->
+
+        </button>
 
         </div>
       <div class="modal-footer">

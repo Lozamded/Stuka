@@ -1,42 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+
 <h2>Perros actuales en Stuka </h2>
 
 <%= link_to new_perro_path, :remote=>true do%> Agregar perro nuevo.
     <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
 <%end%>
 
-<br>
-<br>
-
-
-<div class= "container">
-  <div class="row justify-content-center">
-    <% @perros.each do |perro| %>
-      <div class="col-4">
-          <figure class="figure">
-            <% if (perro.fecha_defuncion == '' or perro.fecha_defuncion == nil) %>
-              <%= link_to perro, :remote=>true do %>
-                <%= image_tag perro.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
-              <%end%>
-              <figcaption class="figure-caption">
-                <strong><%= perro.nombre %></strong>
-                <%= link_to edit_perro_path(perro), :remote=>true do%>
-                  <span class="fa fa-pencil-square-o"></span>
-                <%end%>
-                <%= link_to 'adoptar', perro_adopt_path(perro) , :remote=>true  %>
-                <%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %>
-              </figcaption>
-            <%end%>
-          </figure>
-      </div>
-    <%end%>
+<div class="container">
+  <div class="row">
+    <%= render @perros %>
   </div>
-</div>  
-
-
-<br>
-
+</div>
 
 <%= link_to 'Tabla de detalles', perro_detalles_path(@perros) %><br><br>
 
@@ -45,3 +20,4 @@
 <div id ="new-perro" style = "display:noone;"></div>
 <div id ="edit-perro" style = "display:noone;"></div>
 <div id ="show-perro" style = "display:noone;"></div>
+<div id ="adopt-perro" style = "display:noone;"></div>

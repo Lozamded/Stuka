@@ -2,17 +2,20 @@
 
 <h1>Tabla de todos perros</h1>
 
-<%= link_to new_perro_path, :remote=>true do%> Agregar perro nuevo.
-    <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
-<%end%>
+<h5>
 
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Edad</th>
+      <th>Peso</th>
+      <th>Tamaño</th>
       <th>Fecha ingreso</th>
       <th>Fecha adopción</th>
+      <th>Fecha defuncion</th>
       <th>Propietario </th>
+      <th>Padrino</th>
       <th>Estado</th>
       <th colspan="3"></th>
     </tr>
@@ -22,12 +25,40 @@
     <% @perros.each do |perro| %>
       <tr>
         <td><%= perro.nombre %></td>
+        <td>
+          <% fecha = perro.fecha_nacimiento %>
+          <%if fecha == nil%>
+            Indeterminada
+          <%else%>
+            <% defuncion = perro.fecha_defuncion%>
+            <%if defuncion == nil  %>
+              <% edad = ((Date.today - perro.fecha_nacimiento) / 365).to_i %>
+            <%else%>
+              <% edad = ((perro.fecha_defuncion - perro.fecha_nacimiento) / 365).to_i %>
+            <%end%>
+            <%if edad > 0 %>
+              <%= edad %> Años
+            <%else%>
+              <%edad_meses = Date.today.strftime("%m").to_i  -  (perro.fecha_nacimiento.strftime("%m")).to_i  %>
+              <%= edad_meses %> Meses
+            <%end%>
+          <%end%>
+        </td>
+        <td><%= perro.peso %></td>
+        <td><%= perro.porte %></td>
         <td><%= perro.fecha_ingreso %></td>
-        <td><% if (perro.fecha_adopcion == '' or perro.fecha_adopcion == nil) %>No adoptado
+        <td>
+            <% if (perro.fecha_adopcion == '' or perro.fecha_adopcion == nil) %>No adoptado
             <%else%><%= perro.fecha_adopcion%>
             <%end%>
         </td>
+        <td>
+            <% if (perro.fecha_defuncion == '' or perro.fecha_defuncion == nil) %>Vivo
+            <%else%><%= perro.fecha_defuncion%>
+            <%end%>
+        </td>
         <td><%= perro.propietario.nombre %></td>
+        <td><%= perro.socio_id %></td>
         <td><% if (perro.fecha_defuncion == '' or perro.fecha_defuncion == nil) %>Vivo
             <%else%>Muerto
             <%end%>

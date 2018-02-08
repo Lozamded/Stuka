@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207145655) do
+ActiveRecord::Schema.define(version: 20180208172042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,9 @@ ActiveRecord::Schema.define(version: 20180207145655) do
     t.text "comentario"
     t.string "picture"
     t.date "fecha_defuncion"
+    t.bigint "socio_id"
     t.index ["propietario_id"], name: "index_perros_on_propietario_id"
+    t.index ["socio_id"], name: "index_perros_on_socio_id"
   end
 
   create_table "procedimientos", force: :cascade do |t|
@@ -104,6 +106,18 @@ ActiveRecord::Schema.define(version: 20180207145655) do
     t.text "descripcion"
     t.text "email"
     t.text "telefono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "socios", force: :cascade do |t|
+    t.text "nombre"
+    t.text "rut"
+    t.bigint "aporte"
+    t.date "fecha_nacimiento"
+    t.text "email"
+    t.text "direccion"
+    t.text "comuna"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -141,4 +155,5 @@ ActiveRecord::Schema.define(version: 20180207145655) do
   add_foreign_key "consulta", "veterinarios"
   add_foreign_key "insumos", "proveedors"
   add_foreign_key "perros", "propietarios"
+  add_foreign_key "perros", "socios"
 end

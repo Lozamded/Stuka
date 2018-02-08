@@ -1,0 +1,52 @@
+<%= form_with(model: socio, local: true) do |form| %>
+  <% if socio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(socio.errors.count, "error") %> prohibited this socio from being saved:</h2>
+
+      <ul>
+      <% socio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_area :nombre, id: :socio_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_area :rut, id: :socio_rut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aporte %>
+    <%= form.text_field :aporte, id: :socio_aporte %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_nacimiento %>
+    <%= form.date_select :fecha_nacimiento, id: :socio_fecha_nacimiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email, id: :socio_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_area :direccion, id: :socio_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comuna %>
+    <%= form.text_area :comuna, id: :socio_comuna %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
