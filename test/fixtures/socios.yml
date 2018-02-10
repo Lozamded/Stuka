@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  rut: MyText
+  aporte: 
+  fecha_nacimiento: 2018-02-10
+  email: MyText
+  direccion: MyText
+  comuna: MyText
+
+two:
+  nombre: MyText
+  rut: MyText
+  aporte: 
+  fecha_nacimiento: 2018-02-10
+  email: MyText
+  direccion: MyText
+  comuna: MyText

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :gastos
   resources :insumos
   resources :boleta
+  resources :socios
   resources :proveedors
   resources :procedimientos
   resources :perros do
