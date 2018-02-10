@@ -8,7 +8,6 @@
         <%= perro.nombre %>
       </strong>
       <%= link_to 'Editar', edit_perro_path(perro), :remote=>true %>
-      <%= link_to 'adoptar', perro_adopt_path(perro), :remote=>true %>
       <%= link_to 'Borrar', perro, method: :delete, data: { confirm: '¿Seguro?' } %>
     </figcaption>
   </figure>

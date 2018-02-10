@@ -58,7 +58,7 @@
             <%end%>
         </td>
         <td><%= perro.propietario.nombre %></td>
-        <td><%= perro.socio_id %></td>
+        <td><%= perro.socio.nombre %></td>
         <td><% if (perro.fecha_defuncion == '' or perro.fecha_defuncion == nil) %>Vivo
             <%else%>Muerto
             <%end%>

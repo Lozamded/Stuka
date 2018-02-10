@@ -10,6 +10,8 @@
       </div>
         <div class="modal-body">
 
+          <% comentario = @perro.comentario  %>
+
           <figure class="figure">
             <%= image_tag @perro.picture.medium.url, class: 'figure-img img-fluid rounded' %>
             <figcaption class="figure-caption"><strong>Nombre: </strong> <%= @perro.nombre %></figcaption><br>
@@ -75,8 +77,15 @@
                 <%= @perro.propietario.nombre %>
             </p>
 
+
             <p>
-              <% comentario = @perro.comentario  %>
+              <% if @perro.propietario.nombre == "Stuka" %>
+                <strong>Padrino:</strong>
+                <%= @perro.socio.nombre %>
+              <%end%>
+            </p>
+
+            <p>
               <%if comentario == nil or comentario == '' %>
               <%else%>
                 <strong>Comentario:</strong>
@@ -84,13 +93,6 @@
               <%end%>
             </p>
 
-            <!-- Modal
-            <a href="#editModal" data-toggle="modal" data-dismiss="modal">
-              Editar
-            </a>
-            -->
-
-        </button>
 
         </div>
       <div class="modal-footer">
