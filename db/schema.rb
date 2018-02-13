@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210195353) do
+ActiveRecord::Schema.define(version: 20180213133327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,12 @@ ActiveRecord::Schema.define(version: 20180210195353) do
     t.string "picture"
     t.date "fecha_defuncion"
     t.bigint "socio_id"
+    t.string "sexo"
+    t.string "agresividad_perro"
+    t.string "agresividad_persona"
+    t.string "raza"
     t.index ["propietario_id"], name: "index_perros_on_propietario_id"
-    t.index ["socio_id"], name: "index_perros_on_socio_id", null: true
+    t.index ["socio_id"], name: "index_perros_on_socio_id"
   end
 
   create_table "procedimientos", force: :cascade do |t|
@@ -91,6 +95,7 @@ ActiveRecord::Schema.define(version: 20180210195353) do
 
   create_table "propietarios", force: :cascade do |t|
     t.string "nombre"
+    t.string "rut"
     t.date "fecha_nacimiento"
     t.string "email"
     t.string "telefono"
@@ -98,7 +103,6 @@ ActiveRecord::Schema.define(version: 20180210195353) do
     t.string "comuna"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rut"
   end
 
   create_table "proveedors", force: :cascade do |t|
@@ -125,7 +129,6 @@ ActiveRecord::Schema.define(version: 20180210195353) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", default: "", null: false
-    t.string "type", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'adpociones/new'
 
-  devise_for :users
+  devise_for :users, controllers: 
+  {
+    sessions: 'users/sessions'
+  }
+
   root 'welcome#index'
   get 'welcome/index'
 

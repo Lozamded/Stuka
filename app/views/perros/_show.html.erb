@@ -14,84 +14,114 @@
 
           <figure class="figure">
             <%= image_tag @perro.picture.medium.url, class: 'figure-img img-fluid rounded' %>
-            <figcaption class="figure-caption"><strong>Nombre: </strong> <%= @perro.nombre %></figcaption><br>
+            <figcaption class="figure-caption"></figcaption><br>
           </figure>
 
-            <p>
-                <strong>Peso:</strong>
-                <%= @perro.peso %> [Kg]
-            </p>
+          <p>
+            <strong>Nombre:</strong> 
+            <%= @perro.nombre %>
+          </p>
 
-            <p>
-                <strong>Tamaño:</strong>
-                <%= @perro.porte %>
-            </p>
+          <p>
+            <strong>Raza:</strong>
+            <%= @perro.raza %>
+          </p>
 
-            <p>
-                <strong>Fecha ingreso:</strong>
-                <%= @perro.fecha_ingreso %>
-            </p>
+          <p>
+              <strong>Sexo:</strong>
+              <%= @perro.sexo %>
+          </p>
+          
+          <p>
+            <strong>Peso:</strong>
+            <%= @perro.peso %> [Kg]
+          </p>
 
-            <p>
-                <strong>Edad:</strong>
-                <% fecha = @perro.fecha_nacimiento %>
-                <%if fecha == nil%>
-                  Indeterminada
+          <p>
+            <strong>Tamaño:</strong>
+            <%= @perro.porte %>
+          </p>
+
+          <p>
+            <strong>Fecha ingreso:</strong>
+            <%= @perro.fecha_ingreso %>
+          </p>
+
+          <p>
+            <strong>Edad:</strong>
+            <% fecha = @perro.fecha_nacimiento %>
+            <%if fecha == nil%>
+              Indeterminada
+            <%else%>
+              <% defuncion = @perro.fecha_defuncion%>
+                <%if defuncion == nil  %>
+                  <% edad = ((Date.today - @perro.fecha_nacimiento) / 365).to_i %>
                 <%else%>
-                  <% defuncion = @perro.fecha_defuncion%>
-                  <%if defuncion == nil  %>
-                    <% edad = ((Date.today - @perro.fecha_nacimiento) / 365).to_i %>
-                  <%else%>
-                    <% edad = ((@perro.fecha_defuncion - @perro.fecha_nacimiento) / 365).to_i %>
-                  <%end%>
-                  <%if edad > 0 %>
-                    <%= edad %> Años
-                  <%else%>
-                    <%edad_meses = Date.today.strftime("%m").to_i  -  (@perro.fecha_nacimiento.strftime("%m")).to_i  %>
-                    <%= edad_meses %> Meses
-                  <%end%>
+                  <% edad = ((@perro.fecha_defuncion - @perro.fecha_nacimiento) / 365).to_i %>
                 <%end%>
-            </p>
-
-            <p>
-                <strong>Fecha adopcion:</strong>
-                <% fecha = @perro.fecha_adopcion %>
-                <%if fecha == nil %>
-                  Perro aun sin adoptar
+                <%if edad > 0 %>
+                  <%= edad %> Años
                 <%else%>
-                  <%= fecha %>
+                  <%edad_meses = Date.today.strftime("%m").to_i  -  (@perro.fecha_nacimiento.strftime("%m")).to_i  %>
+                  <%= edad_meses %> Meses
                 <%end%>
-            </p>
+            <%end%>
+          </p>
 
-            <p>
-                <% fecha_def = @perro.fecha_defuncion %>
-                <%if fecha_def == nil %>
-                <%else%>
-                  <strong>Fecha defuncion:</strong>
-                  <%= fecha %>
-                <%end%>
-            </p>
-
-            <p>
-                <strong>Nombre del propietario:</strong>
-                <%= @perro.propietario.nombre %>
-            </p>
-
-
-            <p>
-              <% if @perro.propietario.nombre == "Stuka" %>
-                <strong>Padrino:</strong>
-                <%= @perro.socio.nombre %>
-              <%end%>
-            </p>
-
-            <p>
-              <%if comentario == nil or comentario == '' %>
+          <p>
+              <strong>Fecha adopcion:</strong>
+              <% fecha = @perro.fecha_adopcion %>
+              <%if fecha == nil %>
+                Perro aun sin adoptar
               <%else%>
-                <strong>Comentario:</strong>
-                <%= @perro.comentario %>
+                <%= fecha %>
               <%end%>
-            </p>
+          </p>
+
+          <p>
+            <% fecha_def = @perro.fecha_defuncion %>
+            <%if fecha_def == nil %>
+            <%else%>
+              <strong>Fecha defuncion:</strong>
+              <%= fecha %>
+            <%end%>
+          </p>
+
+          <p>
+            <strong>Agresividad con otros perros:</strong>
+            <%= @perro.agresividad_perro %>
+          </p>
+
+
+          <p>
+            <strong>Agresividad con personas:</strong>
+            <%= @perro.agresividad_perro %>
+          </p>
+
+          <p>
+            <strong>Fecha ingreso:</strong>
+            <%= @perro.fecha_ingreso %>
+          </p>
+
+          <p>
+            <strong>Nombre del propietario:</strong>
+            <%= @perro.propietario.nombre %>
+          </p>
+
+          <p>
+            <% if @perro.propietario.nombre == "Stuka" %>
+              <strong>Padrino:</strong>
+              <%= @perro.socio.nombre %>
+            <%end%>
+          </p>
+
+          <p>
+            <%if comentario == nil or comentario == '' %>
+            <%else%>
+              <strong>Comentario:</strong>
+              <%= @perro.comentario %>
+            <%end%>
+          </p>
 
 
         </div>

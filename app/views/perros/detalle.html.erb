@@ -8,7 +8,9 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Raza</th>
       <th>Edad</th>
+      <th>Sexo</th>
       <th>Peso</th>
       <th>Tamaño</th>
       <th>Fecha ingreso</th>
@@ -25,6 +27,7 @@
     <% @perros.each do |perro| %>
       <tr>
         <td><%= perro.nombre %></td>
+        <td><%= perro.raza %></td>
         <td>
           <% fecha = perro.fecha_nacimiento %>
           <%if fecha == nil%>
@@ -44,7 +47,8 @@
             <%end%>
           <%end%>
         </td>
-        <td><%= perro.peso %></td>
+        <td><%= perro.sexo %></td>
+        <td><%= perro.peso %>[Kg]</td>
         <td><%= perro.porte %></td>
         <td><%= perro.fecha_ingreso %></td>
         <td>

@@ -92,6 +92,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :picture, :fecha_ingreso, :fecha_nacimiento, :fecha_adopcion, :fecha_defuncion, :peso, :porte, :comentario, :propietario_id, :socio_id, propietario_atributes: [:id,:nombre,:_destroy], socio_atributes:[:id,:nombre,:_destroy])
+      params.require(:perro).permit(:nombre, :raza, :sexo, :picture, :fecha_ingreso, :fecha_nacimiento, :fecha_adopcion, :fecha_defuncion, :peso, :porte, :agresividad_perro, :agresividad_persona, :comentario, :propietario_id, :socio_id, propietario_atributes: [:id,:nombre,:_destroy], socio_atributes:[:id,:nombre,:_destroy])
     end
 end

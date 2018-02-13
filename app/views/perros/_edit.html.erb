@@ -34,6 +34,16 @@
             </div><br>
 
             <div class="field">
+              <%= f.label :raza %>
+              <%= f.text_field :raza, id: :perro_raza %>
+            </div><br>
+
+            <div class="field">
+              <%= f.label :sexo %>
+              <%= f.select :sexo, ['Macho','Hembra'], {include_blank: "Seleccione"} %>
+            </div><br>
+
+            <div class="field">
               <%= f.label :peso%>
               <%= f.number_field :peso, id: :perro_peso%> [Kg]
             </div><br>
@@ -41,7 +51,7 @@
             <div class="field">
               <%= f.label :porte%>
               <%= f.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
-            </div>
+            </div><br>
 
             <div class="field">
               <%= f.label :fecha_ingreso %>
@@ -51,18 +61,28 @@
             <div class="field">
               <%= f.label :fecha_nacimiento %>(Estimada)
               <%= f.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
-            </div><br>
+            </div>
 
             <div class="field">
               <%= f.label :fecha_adopcion %>
               <p>(Dejar en blanco si aun no ha sido adoptado)</p>
               <%= f.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
-            </div><br>
+            </div>
 
             <div class="field">
               <%= f.label :fecha_defuncion %>
               <p>(Dejar en blanco para perro vivo)</p>
               <%= f.date_field :fecha_defuncion, id: :perro_fecha_defuncion %>
+            </div><br>
+
+            <div class="field">
+              <%= f.label :agresividad_perro %>
+              <%= f.select :agresividad_perro, ['Nula','baja','media','alta'], {include_blank: "Seleccione"} %>
+            </div>
+
+            <div class="field">
+                <%= f.label :agresividad_persona %>
+                <%= f.select :agresividad_persona, ['Nula','baja','media','alta'], {include_blank: "Seleccione"} %>
             </div><br>
 
             <div class="field">
@@ -73,14 +93,16 @@
             <div class="field">
               <%= f.label :propietario_id %>
               <%= f.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
-            </div><br>
+            </div>
 
             <% if propietario == 'Stuka' %>
               <%= f.label :socio_id %>
               <%= f.select :socio_id, Socio.all.collect { |p| [p.nombre, p.id] } %>
+              <br>
             <%else%>
               <% f.label :socio_id %>
               <% f.select :socio_id, options_for_select(Socio.all.collect { |p| [p.nombre, p.id] }, 1 ) %>
+              <br>
             <%end%>
 
             <div class="actions">
