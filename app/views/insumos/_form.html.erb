@@ -1,10 +1,10 @@
-<%= form_with(model: insumo, local: true) do |form| %>
-  <% if insumo.errors.any? %>
+<%= form_with(model: @insumo, local: true) do |form| %>
+  <% if @insumo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(insumo.errors.count, "error") %> prohibited this insumo from being saved:</h2>
+      <h2><%= pluralize(@insumo.errors.count, "error") %> prohibited this insumo from being saved:</h2>
 
       <ul>
-      <% insumo.errors.full_messages.each do |message| %>
+      <% @insumo.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -21,7 +21,7 @@
     <%= form.select :tipo, ['Medicamento','Herramienta','Accsesorio'], {include_blank: "Seleccione"} %>
   </div><br>
 
-   <div class="field">
+  <div class="field">
     <%= form.label :descripcion %>
     <%= form.text_area :descripcion, id: :insumo_descripcion %>
   </div><br>
@@ -41,8 +41,12 @@
     <%= form.number_field :unidades, id: :insumo_unidades %>
   </div><br>
 
+  <div class="field">
+      <%= form.label :picture %>
+      <%= form.file_field :picture, id: :insumo_picture %>
+  </div><br>
 
-  <h4>(Informacion referente a una botella unica)</h4>
+  <h4>Informacion referente a una unidad de producto:</h4><br>
 
   <div class="field">
     <%= form.label :cantidad %>

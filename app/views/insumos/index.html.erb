@@ -2,6 +2,8 @@
 
 <h1>Insumos</h1>
 
+<%= link_to 'New Insumo', new_insumo_path, :remote=>true %><br>
+
 <table>
   <thead>
     <tr>
@@ -27,9 +29,9 @@
         <td><%= insumo.unidades %></td>
         <td><%= insumo.cantidad %></td>
         <td><%= insumo.cantidad_actual %></td>
-        <td><%= insumo.proveedor.nombre%></td>
-        <td><%= link_to 'Show', insumo %></td>
-        <td><%= link_to 'Edit', edit_insumo_path(insumo) %></td>
+        <td><%= insumo.proveedor.nombre %></td>
+        <td><%= link_to 'Show', insumo, :remote=>true %></td>
+        <td><%= link_to 'Edit', edit_insumo_path(insumo), :remote=>true %></td>
         <td><%= link_to 'Destroy', insumo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -38,5 +40,8 @@
 
 <br>
 
-<%= link_to 'New Insumo', new_insumo_path %>
+<div id ="new-insumo" style = "display:noone;"></div>
+<div id ="edit-insumo" style = "display:noone;"></div>
+<div id ="show-insumo" style = "display:noone;"></div>
+
 <%= link_to 'Volver', welcome_index_path %>

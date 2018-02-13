@@ -1,0 +1,93 @@
+<!-- Modal -->
+<div id="newModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Nuevo Perro</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: @insumo, local: true) do |form| %>
+          <% if @insumo.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@insumo.errors.count, "error") %> prohibited this insumo from being saved:</h2>
+
+              <ul>
+              <% @insumo.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= form.label :nombre %>
+            <%= form.text_field :nombre, id: :insumo_nombre %>
+          </div><br>
+
+          <div class="field">
+            <%= form.label :tipo %>
+            <%= form.select :tipo, ['Medicamento','Herramienta','Accsesorio'], {include_blank: "Seleccione"} %>
+          </div><br>
+
+          <div class="field">
+            <%= form.label :descripcion %>
+            <%= form.text_area :descripcion, id: :insumo_descripcion %>
+          </div><br>
+
+          <div class="field">
+            <%= form.label :presentacion %>
+            <%= form.select :presentacion, ['Unico','Botella','Comprimidos','Rollo'], {include_blank: "Seleccione"} %>
+          </div><br>
+
+          <div class="field">
+            <%= form.label :precio %>
+            <%= form.number_field :precio, id: :insumo_precio %>
+          </div><br>
+
+            <div class="field">
+            <%= form.label :unidades %>
+            <%= form.number_field :unidades, id: :insumo_unidades %>
+          </div><br>
+
+        <div class="field">
+            <%= form.label :picture %>
+            <%= form.file_field :picture, id: :perro_picture %>
+        </div><br>
+
+
+          <h4>(Informacion referente a una botella unica)</h4>
+
+          <div class="field">
+            <%= form.label :cantidad %>
+            <%= form.number_field :cantidad, id: :insumo_cantidad %> [metros],[ml],[capsulas]...etc
+          </div><br>
+
+          <div class="field">
+            <%= form.label :cantidad_actual %>
+            <%= form.number_field :cantidad_actual, id: :insumo_cantidad_actiañ %>Cuantos([metros],[ml],[capsulas]...etc) respecto al envase.
+          </div><br>
+
+          <div class="field">
+            <%= form.label :fecha_compra %>
+            <%= form.date_field :fecha_compra,:value => Time.now.strftime('%Y-%m-%d'), id: :insumo_fecha_compra %>
+          </div><br>
+
+          <div class="field">
+            <%= form.label :proveedor_id %>
+            <%= form.select :proveedor_id, options_for_select(Proveedor.all.collect { |p| [p.nombre, p.id] }, 1 ) %>
+          </div><br>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

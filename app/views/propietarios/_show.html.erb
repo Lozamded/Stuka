@@ -21,6 +21,11 @@
                 </div>
             <% end %>
 
+          <figure class="figure">
+            <%= image_tag @propietario.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
+            <figcaption class="figure-caption"></figcaption><br>
+          </figure>
+
            <p>
             <strong>Nombre:</strong>
             <%= @propietario.nombre %>

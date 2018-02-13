@@ -11,15 +11,24 @@ class InsumosController < ApplicationController
   # GET /insumos/1
   # GET /insumos/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /insumos/new
   def new
     @insumo = Insumo.new
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /insumos/1/edit
   def edit
+    respond_to do |f|
+      f.js
+    end
   end
 
   # POST /insumos
@@ -29,7 +38,7 @@ class InsumosController < ApplicationController
 
     respond_to do |format|
       if @insumo.save
-        format.html { redirect_to @insumo, notice: 'Insumo was successfully created.' }
+        format.html { redirect_to insumos_url, notice: 'Insumo was successfully created.' }
         format.json { render :show, status: :created, location: @insumo }
       else
         format.html { render :new }
@@ -43,10 +52,10 @@ class InsumosController < ApplicationController
   def update
     respond_to do |format|
       if @insumo.update(insumo_params)
-        format.html { redirect_to @insumo, notice: 'Insumo was successfully updated.' }
+        format.html { redirect_to  insumos_url , notice: 'Insumo was successfully updated.' }
         format.json { render :show, status: :ok, location: @insumo }
       else
-        format.html { render :edit }
+        format.html { render :edit } 
         format.json { render json: @insumo.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +79,6 @@ class InsumosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def insumo_params
-      params.require(:insumo).permit(:nombre, :tipo, :descripcion, :presentacion, :precio, :unidades, :cantidad, :cantidad_actual, :fecha_compra, :proveedor_id,propietario_atributes: [:id,:nombre,:_destroy], proveedor_atributes:[:id,:nombre,:_destroy])
+      params.require(:insumo).permit(:nombre, :tipo, :descripcion, :presentacion, :precio, :unidades, :cantidad, :cantidad_actual, :fecha_compra, :picture, :proveedor_id, propietario_atributes: [:id,:nombre,:_destroy], proveedor_atributes:[:id,:nombre,:_destroy])
     end
 end
