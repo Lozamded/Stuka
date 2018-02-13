@@ -1,0 +1,75 @@
+<!-- Modal -->
+<div id="editModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar veterinario</h4>
+      </div>
+      <div class="modal-body">
+      
+        <%= form_with(model: @veterinario, local: true) do |form| %>
+          <% if @veterinario.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@veterinario.errors.count, "error") %> prohibited this veterinario from being saved:</h2>
+
+              <ul>
+              <% @veterinario.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+            
+          <div class="field">
+            <%= form.label :picture %>
+            <%= form.file_field :picture, id: :veterinario_picture %>
+          </div><br>
+
+          <div class="field">
+            <%= form.label :nombre %>
+            <%= form.text_field :nombre, id: :veterinario_nombre %>
+          </div>
+
+          <div class="field">
+            <%= form.label :apodo %>
+            <p> Si es que tiene uno. </p>
+            <%= form.text_field :apodo, id: :veterinario_apodo %>
+          </div>
+
+          <div class="field">
+            <%= form.label :fecha_nacimiento %>
+            <%= form.date_field :fecha_nacimiento, id: :veterinario_fecha_nacimiento %>
+          </div>
+
+          <div class="field">
+            <%= form.label :especialidad %>
+            <%= form.text_field :especialidad, id: :veterinario_especialidad %>
+          </div>
+
+          <div class="field">
+            <%= form.label :email %>
+            <%= form.text_area :email, id: :veterinario_email %>
+          </div>
+
+          <div class="field">
+            <%= form.label :telefono %>
+            <%= form.phone_field :telefono, id: :veterinario_telefono %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

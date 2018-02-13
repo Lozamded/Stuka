@@ -22,8 +22,8 @@
         <td><%= veterinario.especialidad %></td>
         <td><%= veterinario.email %></td>
         <td><%= veterinario.telefono %></td>
-        <td><%= link_to 'Show', veterinario %></td>
-        <td><%= link_to 'Edit', edit_veterinario_path(veterinario) %></td>
+        <td><%= link_to 'Show', veterinario, :remote=>true %></td>
+        <td><%= link_to 'Edit', edit_veterinario_path(veterinario), :remote=>true %></td>
         <td><%= link_to 'Destroy', veterinario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -32,5 +32,10 @@
 
 <br>
 
-<%= link_to 'New Veterinario', new_veterinario_path %>
+<%= link_to 'New Veterinario', new_veterinario_path, :remote=>true %>
 <%= link_to 'Volver', welcome_index_path %>
+
+
+<div id ="new-veterinario" style = "display:noone;"></div>
+<div id ="edit-veterinario" style = "display:noone;"></div>
+<div id ="show-veterinario" style = "display:noone;"></div>

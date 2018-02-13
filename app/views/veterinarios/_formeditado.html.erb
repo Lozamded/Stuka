@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+    
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :veterinario_picture %>
+  </div><br>
 
   <div class="field">
     <%= form.label :nombre %>
@@ -29,7 +34,7 @@
 
   <div class="field">
     <%= form.label :especialidad %>
-    <%= form.text_area :especialidad, id: :veterinario_especialidad %>
+    <%= form.text_field :especialidad, id: :veterinario_especialidad %>
   </div>
 
   <div class="field">
@@ -39,7 +44,7 @@
 
   <div class="field">
     <%= form.label :telefono %>
-    <%= form.text_area :telefono, id: :veterinario_telefono %>
+    <%= form.phone_field :telefono, id: :veterinario_telefono %>
   </div>
 
   <div class="actions">

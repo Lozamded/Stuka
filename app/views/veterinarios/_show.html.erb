@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Ver veterinario</h4>
+      </div>
+      <div class="modal-body">
+      
+        <figure class="figure">
+        <%= image_tag @veterinario.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
+        <figcaption class="figure-caption"></figcaption><br>
+        </figure>
+
+        <p>
+        <strong>Nombre:</strong>
+        <%= @veterinario.nombre %>
+        </p>
+
+        <p>
+        <strong>Apodo:</strong>
+        <%= @veterinario.apodo %>
+        </p>
+
+        <p>
+        <strong>Fecha nacimiento:</strong>
+        <%= @veterinario.fecha_nacimiento %>
+        </p>
+
+        <p>
+        <strong>Especialidad:</strong>
+        <%= @veterinario.especialidad %>
+        </p>
+
+        <p>
+        <strong>Email:</strong>
+        <%= @veterinario.email %>
+        </p>
+
+        <p>
+        <strong>Telefono:</strong>
+        <%= @veterinario.telefono %>
+        </p>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :nombre %>
-    <%= form.text_area :nombre, id: :proveedor_nombre %>
+    <%= form.text_field :nombre, id: :proveedor_nombre %>
   </div>
 
   <div class="field">
@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_area :email, id: :proveedor_email %>
+    <%= form.email_field :email, id: :proveedor_email %>
   </div>
 
   <div class="field">
     <%= form.label :telefono %>
-    <%= form.text_area :telefono, id: :proveedor_telefono %>
+    <%= form.phone_field :telefono, id: :proveedor_telefono %>
   </div>
 
   <div class="actions">

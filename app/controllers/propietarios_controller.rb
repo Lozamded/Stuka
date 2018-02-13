@@ -79,6 +79,6 @@ class PropietariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def propietario_params
-      params.require(:propietario).permit(:nombre, :rut, :fecha_nacimiento, :email, :telefono, :direccion, :comuna, :picture)
+      params.require(:propietario).permit(:nombre, :rut, :fecha_nacimiento, :email, :telefono, :direccion, :comuna)
     end
 end

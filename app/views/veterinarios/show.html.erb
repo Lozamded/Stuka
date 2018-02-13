@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<figure class="figure">
+  <%= image_tag @veterinario.picture.thumb.url, class: 'figure-img img-fluid rounded' %>
+  <figcaption class="figure-caption"></figcaption><br>
+</figure>
+
 <p>
   <strong>Nombre:</strong>
   <%= @veterinario.nombre %>
