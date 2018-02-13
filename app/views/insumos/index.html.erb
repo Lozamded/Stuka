@@ -9,6 +9,10 @@
       <th>Tipo</th>
       <th>Presentacion</th>
       <th>Precio</th>
+      <th>Unidades</th>
+      <th>Contenido</th>
+      <th>Queda</th>
+      <th>Proveedor</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +24,10 @@
         <td><%= insumo.tipo %></td>
         <td><%= insumo.presentacion %></td>
         <td><%= insumo.precio %></td>
+        <td><%= insumo.unidades %></td>
+        <td><%= insumo.cantidad %></td>
+        <td><%= insumo.cantidad_actual %></td>
+        <td><%= insumo.proveedor.nombre%></td>
         <td><%= link_to 'Show', insumo %></td>
         <td><%= link_to 'Edit', edit_insumo_path(insumo) %></td>
         <td><%= link_to 'Destroy', insumo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

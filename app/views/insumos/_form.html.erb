@@ -13,23 +13,56 @@
 
   <div class="field">
     <%= form.label :nombre %>
-    <%= form.text_area :nombre, id: :insumo_nombre %>
-  </div>
+    <%= form.text_field :nombre, id: :insumo_nombre %>
+  </div><br>
 
   <div class="field">
     <%= form.label :tipo %>
-    <%= form.text_area :tipo, id: :insumo_tipo %>
-  </div>
+    <%= form.select :tipo, ['Medicamento','Herramienta','Accsesorio'], {include_blank: "Seleccione"} %>
+  </div><br>
+
+   <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :insumo_descripcion %>
+  </div><br>
 
   <div class="field">
     <%= form.label :presentacion %>
-    <%= form.text_area :presentacion, id: :insumo_presentacion %>
-  </div>
+    <%= form.select :presentacion, ['Unico','Botella','Comprimidos','Rollo'], {include_blank: "Seleccione"} %>
+  </div><br>
 
   <div class="field">
     <%= form.label :precio %>
-    <%= form.text_field :precio, id: :insumo_precio %>
-  </div>
+    <%= form.number_field :precio, id: :insumo_precio %>
+  </div><br>
+
+    <div class="field">
+    <%= form.label :unidades %>
+    <%= form.number_field :unidades, id: :insumo_unidades %>
+  </div><br>
+
+
+  <h4>(Informacion referente a una botella unica)</h4>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, id: :insumo_cantidad %> [metros],[ml],[capsulas]...etc
+  </div><br>
+
+  <div class="field">
+    <%= form.label :cantidad_actual %>
+    <%= form.number_field :cantidad_actual, id: :insumo_cantidad_actiañ %>Cuantos([metros],[ml],[capsulas]...etc) respecto al envase.
+  </div><br>
+
+  <div class="field">
+    <%= form.label :fecha_compra %>
+    <%= form.date_field :fecha_compra,:value => Time.now.strftime('%Y-%m-%d'), id: :insumo_fecha_compra %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :proveedor_id %>
+    <%= form.select :proveedor_id, options_for_select(Proveedor.all.collect { |p| [p.nombre, p.id] }, 1 ) %>
+  </div><br>
 
   <div class="actions">
     <%= form.submit %>

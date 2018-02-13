@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Descripcion:</strong>
+  <%= @insumo.descripcion %>
+</p>
+
+<p>
   <strong>Presentacion:</strong>
   <%= @insumo.presentacion %>
 </p>
@@ -18,6 +23,31 @@
 <p>
   <strong>Precio:</strong>
   <%= @insumo.precio %>
+</p>
+
+<p>
+  <strong>Unidades:</strong>
+  <%= @insumo.unidades%>
+</p>
+
+<p>
+  <strong>Contenido:</strong>
+  <%= @insumo.cantidad %>
+</p>
+
+<p>
+  <strong>Queda en el frasco actual:</strong>
+  <%= @insumo.cantidad_actual %>
+</p>
+
+<p>
+  <strong>Ultima fecha de compra:</strong>
+  <%= @insumo.fecha_compra %>
+</p>
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @insumo.proveedor.nombre %>
 </p>
 
 <%= link_to 'Edit', edit_insumo_path(@insumo) %> |

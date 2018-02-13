@@ -100,8 +100,8 @@
               <%= f.select :socio_id, Socio.all.collect { |p| [p.nombre, p.id] } %>
               <br>
             <%else%>
-              <% f.label :socio_id %>
-              <% f.select :socio_id, options_for_select(Socio.all.collect { |p| [p.nombre, p.id] }, 1 ) %>
+              <%= f.label :socio_id %>
+              <%= f.select :socio_id, options_for_select(Socio.all.collect { |p| [p.nombre, p.id] }, 1 ) %>
               <br>
             <%end%>
 
