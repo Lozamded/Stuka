@@ -29,7 +29,7 @@
 
   <div class="porte">
     <%= form.label :porte%>
-    <%= form.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
+    <%= form.select :porte, ['pequeño','mediano','grande','gigante'], {include_blank: "Seleccione"} %>
   </div><br>
 
   <div class="field">
@@ -54,7 +54,7 @@
   </div><br>
 
   <div class="field">
-    <%= form.label :propietario_id %>
+    <%= form.label :propietario_id,'Proropietiario' %>
     <%= form.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
   </div><br>
 

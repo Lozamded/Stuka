@@ -10,5 +10,17 @@
   <%= @consultum.tipo %>
 </p>
 
+<p>
+  <% if @consultum.con_procs.any? %>
+    <ul>
+      <%@consultum.con_procs.each do |con_proc|%>
+        <li><%= link_to con_proc, con_proc %></li>
+      <%end%>
+    </ul>
+  <%else%>
+Sin procedimientos
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_consultum_path(@consultum) %> |
 <%= link_to 'Back', consulta_path %>

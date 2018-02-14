@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Procedimiento:</strong>
+  <%= @con_proc.procedimiento %>
+</p>
+
+<p>
+  <strong>Consulta:</strong>
+  <%= @con_proc.consulta %>
+</p>
+
+<%= link_to 'Edit', edit_con_proc_path(@con_proc) %> |
+<%= link_to 'Back', con_procs_path %>

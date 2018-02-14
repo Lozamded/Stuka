@@ -50,16 +50,16 @@
 
             <div class="field">
               <%= f.label :porte%>
-              <%= f.select :porte, ['pequeño','mediano','grande'], {include_blank: "Seleccione"} %>
+              <%= f.select :porte, ['pequeño','mediano','grande','gigante'], {include_blank: "Seleccione"} %>
             </div><br>
 
             <div class="field">
-              <%= f.label :fecha_ingreso %>
+              <%= f.label :fecha_ingreso %><br>
               <%= f.date_field :fecha_ingreso, id: :perro_fecha_ingreso %>
-            </div><br>
+            </div>
 
             <div class="field">
-              <%= f.label :fecha_nacimiento %>(Estimada)
+              <%= f.label :fecha_nacimiento %>(Estimada)<br>
               <%= f.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
             </div>
 
@@ -70,18 +70,18 @@
             </div>
 
             <div class="field">
-              <%= f.label :fecha_defuncion %>
+              <%= f.label :fecha_defuncion, "Fecha de deceso" %>
               <p>(Dejar en blanco para perro vivo)</p>
               <%= f.date_field :fecha_defuncion, id: :perro_fecha_defuncion %>
             </div><br>
 
             <div class="field">
-              <%= f.label :agresividad_perro %>
+              <%= f.label :agresividad_perro, "Agresividad con otros perros" %>
               <%= f.select :agresividad_perro, ['Nula','baja','media','alta'], {include_blank: "Seleccione"} %>
             </div>
 
             <div class="field">
-                <%= f.label :agresividad_persona %>
+                <%= f.label :agresividad_persona, "Agresividad con personas" %>
                 <%= f.select :agresividad_persona, ['Nula','baja','media','alta'], {include_blank: "Seleccione"} %>
             </div><br>
 

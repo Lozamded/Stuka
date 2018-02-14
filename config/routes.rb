@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :con_procs
   get 'adpociones/new'
 
   devise_for :users, controllers: 

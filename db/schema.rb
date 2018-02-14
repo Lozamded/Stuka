@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213183832) do
+ActiveRecord::Schema.define(version: 20180214155225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20180213183832) do
     t.datetime "updated_at", null: false
     t.bigint "consulta_id"
     t.index ["consulta_id"], name: "index_boleta_on_consulta_id"
+  end
+
+  create_table "con_procs", force: :cascade do |t|
+    t.string "procedimiento"
+    t.bigint "consultum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consultum_id"], name: "index_con_procs_on_consultum_id"
   end
 
   create_table "consulta", force: :cascade do |t|
@@ -165,6 +173,7 @@ ActiveRecord::Schema.define(version: 20180213183832) do
   end
 
   add_foreign_key "boleta", "consulta", column: "consulta_id"
+  add_foreign_key "con_procs", "consulta"
   add_foreign_key "consulta", "perros"
   add_foreign_key "consulta", "procedimientos"
   add_foreign_key "consulta", "veterinarios"

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Con Procs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Procedimiento</th>
+      <th>Consulta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @con_procs.each do |con_proc| %>
+      <tr>
+        <td><%= con_proc.procedimiento %></td>
+        <td><%= con_proc.consulta %></td>
+        <td><%= link_to 'Show', con_proc %></td>
+        <td><%= link_to 'Edit', edit_con_proc_path(con_proc) %></td>
+        <td><%= link_to 'Destroy', con_proc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Con Proc', new_con_proc_path %>

@@ -1,0 +1,22 @@
+<%= form_with(model: con_proc, local: true) do |form| %>
+  <% if con_proc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(con_proc.errors.count, "error") %> prohibited this con_proc from being saved:</h2>
+
+      <ul>
+      <% con_proc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :procedimiento %>
+    <%= form.text_field :procedimiento, id: :con_proc_procedimiento %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

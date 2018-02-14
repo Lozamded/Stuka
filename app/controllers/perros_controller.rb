@@ -6,6 +6,9 @@ class PerrosController < ApplicationController
   # GET /perros.json
   def index
     @perros = Perro.all
+    #@perros_Stuka = Perro.where(propietario.nombre: "Stuka")
+    #@perros_Adotptados = Perro.where.not(propietario.nombre: "Stuka")
+    #@perros_Apadrinados = Perro.where.not(propietario.socio: "Ninguno")
   end
 
   # GET /perros/1

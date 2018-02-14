@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  procedimiento: MyString
+  consultum_id: MyString
+  consulta: one
+
+two:
+  procedimiento: MyString
+  consultum_id: MyString
+  consulta: two

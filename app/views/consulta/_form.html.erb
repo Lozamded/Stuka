@@ -13,13 +13,26 @@
 
   <div class="field">
     <%= form.label :fecha %>
-    <%= form.date_field :fecha, id: :consultum_fecha %>
+    <%= form.date_field :fecha, :value => Time.now.strftime('%Y-%m-%d'), id: :consultum_fecha %>
   </div>
 
   <div class="field">
     <%= form.label :tipo %>
     <%= form.select :tipo, ['interna','Externa'], {include_blank: "Seleccione"} %>
   </div>
+  
+  <h2>Procedimientos</h2>
+
+ <%= form.fields_for :con_procs do |con_proc| %>
+  <div class="con_proc_fields">
+    <div class="field">
+      <%= con_proc.label :procedimiento %><br>
+      <%= con_proc.text_field :procedimiento %>
+      <%= con_proc.check_box :_destroy %>
+      <%= con_proc.label :_destroy ,'remove' %>
+    </div>
+  </div>
+ <% end %>
 
   <div class="actions">
     <%= form.submit %>
