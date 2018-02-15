@@ -50,8 +50,23 @@
           </div>
 
           <div class="field">
+            <%= form.label :estudios %>
+            <%= form.select :estudios, ['Universitario','Tecnico'], {include_blank: "Seleccione"} %>
+          </div>
+
+          <div class="field">
+            <%= form.label :tipo %>
+            <%= form.select :tipo, ['Titulado','Egresado','Practicante'] %>
+          </div>
+
+          <div class="field">
+            <%= form.label :casa_estudios %>
+            <%= form.text_field :casa_estudios, id: :casa_estudios %>
+          </div>
+
+          <div class="field">
             <%= form.label :email %>
-            <%= form.text_area :email, id: :veterinario_email %>
+            <%= form.email_field :email, id: :veterinario_email %>
           </div>
 
           <div class="field">

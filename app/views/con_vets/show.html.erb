@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @con_vet.nombre %>
+</p>
+
+<p>
+  <strong>Consulta:</strong>
+  <%= @con_vet.consulta %>
+</p>
+
+<%= link_to 'Edit', edit_con_vet_path(@con_vet) %> |
+<%= link_to 'Back', con_vets_path %>

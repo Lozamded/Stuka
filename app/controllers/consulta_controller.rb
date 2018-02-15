@@ -17,11 +17,13 @@ class ConsultaController < ApplicationController
   def new
     @consultum = Consultum.new
     @consultum.con_procs.build
+    @consultum.con_vets.build
   end
 
   # GET /consulta/1/edit
   def edit
     @consultum.con_procs.build
+    @consultum.con_vets.build
   end
 
   # POST /consulta
@@ -72,6 +74,6 @@ class ConsultaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consultum_params
-      params.require(:consultum).permit(:fecha, :tipo,con_procs_attributes:[:id, :procedimiento, :_destroy])
+      params.require(:consultum).permit(:fecha, :tipo,con_procs_attributes:[:id, :procedimiento, :_destroy],con_vets_attributes:[:id, :nombre, :_destroy])
     end
 end

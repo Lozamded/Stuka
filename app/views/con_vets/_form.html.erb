@@ -1,0 +1,27 @@
+<%= form_with(model: con_vet, local: true) do |form| %>
+  <% if con_vet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(con_vet.errors.count, "error") %> prohibited this con_vet from being saved:</h2>
+
+      <ul>
+      <% con_vet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :con_vet_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :consultum_id %>
+    <%= form.text_field :consultum_id, id: :con_vet_consultum_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

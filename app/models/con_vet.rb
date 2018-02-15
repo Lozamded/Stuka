@@ -1,0 +1,3 @@
+class ConVet < ApplicationRecord
+  
+end
