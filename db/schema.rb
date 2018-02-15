@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214155225) do
+ActiveRecord::Schema.define(version: 20180215142931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boleta", force: :cascade do |t|
-    t.date  "fecha"
+    t.date "fecha"
     t.bigint "valor"
     t.text "descripcion"
     t.datetime "created_at", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180214155225) do
     t.bigint "consultum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "precio"
     t.index ["consultum_id"], name: "index_con_procs_on_consultum_id"
   end
 
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180214155225) do
     t.bigint "veterinario_id"
     t.bigint "perro_id"
     t.bigint "procedimiento_id"
+    t.bigint "precio"
     t.index ["perro_id"], name: "index_consulta_on_perro_id"
     t.index ["procedimiento_id"], name: "index_consulta_on_procedimiento_id"
     t.index ["veterinario_id"], name: "index_consulta_on_veterinario_id"

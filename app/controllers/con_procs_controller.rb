@@ -69,6 +69,6 @@ class ConProcsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def con_proc_params
-      params.require(:con_proc).permit(:procedimiento, :consultum_id)
+      params.require(:con_proc).permit(:procedimiento, :precio, :consultum_id)
     end
 end

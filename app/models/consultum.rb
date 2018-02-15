@@ -3,6 +3,9 @@ class Consultum < ApplicationRecord
     accepts_nested_attributes_for :con_procs,
                                     reject_if: proc{ |attributes| attributes['procedimiento'].blank? }, 
                                     allow_destroy: true
+
+
+    
     def to_s
         tipo
     end

@@ -28,7 +28,7 @@
     <div class="field">
       <%= con_proc.label :procedimiento %><br>
       <%= con_proc.select :procedimiento, Procedimiento.all.collect { |p| [p.descripcion, p.descripcion]}, {include_blank: "Seleccione"} %>
-      <%= con_proc.check_box :_destroy %>
+      <%= con_proc.check_box :_destroy, :value=> 0  %>
       <%= con_proc.label :_destroy ,'remove' %>
     </div>
   </div>

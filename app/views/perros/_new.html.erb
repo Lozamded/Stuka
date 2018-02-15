@@ -83,9 +83,10 @@
               <%= form.text_area :comentario, id: :perro_comentario %>
             </div><br>
 
-            <div class="field">
+            <div class="field">}      
+                <% opcion_stuka = Propietario.where(nombre: "Stuka").first %>
                 <%= form.label :propietario_id %>
-                <%= form.select :propietario_id,  options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, 3 ) %>
+                <%= form.select :propietario_id,  options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, opcion_stuka.id ) %>
             </div>
 
             <div class="field">
