@@ -15,7 +15,7 @@
     <% @con_procs.each do |con_proc| %>
       <tr>
         <td><%= con_proc.procedimiento %></td>
-        <td><%= con_proc.consulta %></td>
+        <td><%= con_proc.consultum_id %></td>
         <td><%= link_to 'Show', con_proc %></td>
         <td><%= link_to 'Edit', edit_con_proc_path(con_proc) %></td>
         <td><%= link_to 'Destroy', con_proc, method: :delete, data: { confirm: 'Are you sure?' } %></td>

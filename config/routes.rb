@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :veterinarios
-  resources :consulta
+  resources :consulta do
+    resources :con_procs
+  end
   resources :gastos
   resources :insumos
   resources :boleta

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180214155225) do
   enable_extension "plpgsql"
 
   create_table "boleta", force: :cascade do |t|
-    t.date "fecha"
+    t.date  "fecha"
     t.bigint "valor"
     t.text "descripcion"
     t.datetime "created_at", null: false

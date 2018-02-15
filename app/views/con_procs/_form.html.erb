@@ -13,8 +13,13 @@
 
   <div class="field">
     <%= form.label :procedimiento %>
-    <%= form.text_field :procedimiento, id: :con_proc_procedimiento %>
+    <%= form.select :procedimiento, Procedimiento.all.collect { |p| [p.descripcion, p.descripcion]} %>
   </div>
+
+  <div class="field">
+    <% form.label :consultum_id %>Fecha de la Consulta
+    <%= form.select :consultum_id, Consultum.all.collect { |p| [p.fecha, p.id] } %>
+  </div> 
 
   <div class="actions">
     <%= form.submit %>

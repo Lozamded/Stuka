@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :tipo %>
-    <%= form.select :tipo, ['interna','Externa'], {include_blank: "Seleccione"} %>
+    <%= form.select :tipo, ['Interna','Externa'], {include_blank: "Seleccione"} %>
   </div>
   
   <h2>Procedimientos</h2>
@@ -27,11 +27,13 @@
   <div class="con_proc_fields">
     <div class="field">
       <%= con_proc.label :procedimiento %><br>
-      <%= con_proc.text_field :procedimiento %>
+      <%= con_proc.select :procedimiento, Procedimiento.all.collect { |p| [p.descripcion, p.descripcion]}, {include_blank: "Seleccione"} %>
       <%= con_proc.check_box :_destroy %>
       <%= con_proc.label :_destroy ,'remove' %>
     </div>
   </div>
+
+   
  <% end %>
 
   <div class="actions">
