@@ -16,7 +16,7 @@ class ConsultaController < ApplicationController
   # GET /consulta/new
   def new
     @consultum = Consultum.new
-    @consultum.con_procs.build
+    1.times{@consultum.con_procs.build}
     @consultum.con_vets.build
   end
 

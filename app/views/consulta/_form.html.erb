@@ -1,4 +1,4 @@
-<%= form_with(model: consultum, local: true) do |form| %>
+<%= form_with(model: consultum, local: true) do |f| %>
   <% if consultum.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(consultum.errors.count, "error") %> prohibited this consultum from being saved:</h2>
@@ -12,31 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_field :fecha, :value => Time.now.strftime('%Y-%m-%d'), id: :consultum_fecha %>
+    <%= f.label :fecha %>
+    <%= f.date_field :fecha, :value => Time.now.strftime('%Y-%m-%d'), id: :consultum_fecha %>
   </div>
 
   <div class="field">
-    <%= form.label :tipo %>
-    <%= form.select :tipo, ['Interna','Externa'], {include_blank: "Seleccione"} %>
+    <%= f.label :tipo %>
+    <%= f.select :tipo, ['Interna','Externa'], {include_blank: "Seleccione"} %>
   </div>
-  
-  <h2>Procedimientos</h2>
 
- <%= form.fields_for :con_procs do |con_proc| %>
-  <div class="con_proc_fields">
-    <div class="field">
-      <%= con_proc.label :procedimiento %><br>
-      <%= con_proc.select :procedimiento, Procedimiento.all.collect { |p| [p.descripcion, p.descripcion]}, {include_blank: "Seleccione"} %>
-      <%= con_proc.check_box :_destroy, :value=> 0  %>
-      <%= con_proc.label :_destroy ,'remove' %>
+  <h2>Procedimientos realizados</h2>
+
+  <div id="procedimientos" >
+    <div class="procedimientos-fields">
+      <%= f.fields_for :con_procs do |con_proc| %>
+        <%= render "procedimientos_fields", f: con_proc %>
+      <% end %>
     </div>
   </div>
+  
+  <div class="links">
+    <%= link_to_add_association 'añadir procedimiento', f, :con_procs,
+    'data-association-insertion-node' =>  '.procedimientos-fields',
+    'data-association-insertion-method' => 'append', :class => 'col-xs-1',
+    partial: 'procedimientos_fields' %>
+  </div>
 
-   
- <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

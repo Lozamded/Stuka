@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 20180215163716) do
 
   create_table "propietarios", force: :cascade do |t|
     t.string "nombre"
-    t.string "rut"
     t.date "fecha_nacimiento"
     t.string "email"
     t.string "telefono"
@@ -127,6 +126,7 @@ ActiveRecord::Schema.define(version: 20180215163716) do
     t.string "comuna"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "rut"
     t.string "picture"
   end
 
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20180215163716) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", default: "", null: false
+    t.string "type", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

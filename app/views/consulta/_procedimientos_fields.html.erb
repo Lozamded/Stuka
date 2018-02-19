@@ -1,0 +1,8 @@
+  <div class="nested-fields">
+    <div class="field">
+      <%= f.label :procedimiento %><br>
+      <%= f.select :procedimiento, Procedimiento.all.collect { |p| [p.descripcion, p.descripcion]}, {include_blank: "Ninguna"} %>
+      <%= f.check_box :_destroy, :value=> 0  %>
+      <%= f.label :_destroy ,'remove' %>
+    </div>
+  </div>

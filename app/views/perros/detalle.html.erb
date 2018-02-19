@@ -20,7 +20,6 @@
       <th>Fecha deceso</th>
       <th>Propietario </th>
       <th>Padrino</th>
-      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -65,10 +64,6 @@
         </td>
         <td><%= perro.propietario.nombre %></td>
         <td><%= perro.socio.nombre %></td>
-        <td><% if (perro.fecha_defuncion == '' or perro.fecha_defuncion == nil) %>Vivo
-            <%else%>Muerto
-            <%end%>
-        </td> 
         <td>
           <%= link_to perro, :remote=>true do %>
             Detalle<span class="fa fa-eye"></span>
