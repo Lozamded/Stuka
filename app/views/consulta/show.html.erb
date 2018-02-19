@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% @precio_total = 0 %>
+
 <p>
   <strong>Fecha:</strong>
   <%= @consultum.fecha %>
@@ -10,17 +12,37 @@
   <%= @consultum.tipo %>
 </p>
 
+
 <p>
+  <strong>Veterinarios:</strong>
+  <% if @consultum.con_vets.any? %>
+    <ul>
+      <%@consultum.con_vets.each do |con_vet|%>
+        <li><%= con_vet %></li>
+      <%end%>
+    </ul>
+  <%else%>
+No hay veterinarios asignados
+  <% end %>
+</p>
+
+<p>
+  <strong>Procedimientos realizados:</strong>
   <% if @consultum.con_procs.any? %>
     <ul>
       <%@consultum.con_procs.each do |con_proc|%>
-        <li><%= link_to con_proc, con_proc %></li>
+        <% @proced = Procedimiento.where(descripcion: con_proc.procedimiento).first  %>
+        <li><%= con_proc %> <strong>Precio: </strong> <%= @proced.precio %> </li>
+        <% @precio_total += @proced.precio %>
       <%end%>
     </ul>
   <%else%>
 Sin procedimientos
   <% end %>
 </p>
+
+<strong> Precio total por procedimientos: </strong>
+<%= @precio_total %><br>
 
 <%= link_to 'Edit', edit_consultum_path(@consultum) %> |
 <%= link_to 'Back', consulta_path %>

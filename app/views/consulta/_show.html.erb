@@ -1,0 +1,63 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Consulta</h4>
+      </div>
+      <div class="modal-body">
+
+        <% @precio_total = 0 %>
+
+        <p>
+        <strong>Fecha:</strong>
+        <%= @consultum.fecha %>
+        </p>
+
+        <p>
+        <strong>Tipo:</strong>
+        <%= @consultum.tipo %>
+        </p>
+
+
+        <p>
+        <strong>Veterinarios:</strong>
+        <% if @consultum.con_vets.any? %>
+            <ul>
+            <%@consultum.con_vets.each do |con_vet|%>
+                <li><%= con_vet %></li>
+            <%end%>
+            </ul>
+        <%else%>
+        No hay veterinarios asignados
+        <% end %>
+        </p>
+
+        <p>
+        <strong>Procedimientos realizados:</strong>
+        <% if @consultum.con_procs.any? %>
+            <ul>
+            <%@consultum.con_procs.each do |con_proc|%>
+                <% @proced = Procedimiento.where(descripcion: con_proc.procedimiento).first  %>
+                <li><%= con_proc %> <strong>Precio: </strong> <%= @proced.precio %> </li>
+                <% @precio_total += @proced.precio %>
+            <%end%>
+            </ul>
+        <%else%>
+        Sin procedimientos
+        <% end %>
+        </p>
+
+        <strong> Precio total por procedimientos: </strong>
+        <%= @precio_total %><br>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

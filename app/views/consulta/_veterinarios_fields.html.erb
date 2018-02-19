@@ -1,0 +1,8 @@
+  <div class="nested-fields">
+    <div class="field">
+      <%= f.label :nombre %><br>
+      <%= f.select :nombre, Veterinario.all.collect { |p| [p.nombre, p.nombre]}, {include_blank: "Ninguno/a"} %>
+      <%= f.check_box :_destroy, :value=> 0  %>
+      <%= f.label :_destroy ,'remove' %>
+    </div>
+  </div>

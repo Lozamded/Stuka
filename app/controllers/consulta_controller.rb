@@ -11,19 +11,28 @@ class ConsultaController < ApplicationController
   # GET /consulta/1
   # GET /consulta/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /consulta/new
   def new
     @consultum = Consultum.new
     1.times{@consultum.con_procs.build}
-    @consultum.con_vets.build
+    1.times{@consultum.con_vets.build}
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /consulta/1/edit
   def edit
-    @consultum.con_procs.build
-    @consultum.con_vets.build
+    1.times{@consultum.con_procs.build}
+    1.times{@consultum.con_vets.build}
+    respond_to do |f|
+      f.js
+    end
   end
 
   # POST /consulta
@@ -33,7 +42,7 @@ class ConsultaController < ApplicationController
 
     respond_to do |format|
       if @consultum.save
-        format.html { redirect_to @consultum, notice: 'Consultum was successfully created.' }
+        format.html { redirect_to consulta_url, notice: 'Consulta creada.' }
         format.json { render :show, status: :created, location: @consultum }
       else
         format.html { render :new }
@@ -47,7 +56,7 @@ class ConsultaController < ApplicationController
   def update
     respond_to do |format|
       if @consultum.update(consultum_params)
-        format.html { redirect_to @consultum, notice: 'Consultum was successfully updated.' }
+        format.html { redirect_to consulta_url, notice: 'Consulta editada.' }
         format.json { render :show, status: :ok, location: @consultum }
       else
         format.html { render :edit }
@@ -61,7 +70,7 @@ class ConsultaController < ApplicationController
   def destroy
     @consultum.destroy
     respond_to do |format|
-      format.html { redirect_to consulta_url, notice: 'Consultum was successfully destroyed.' }
+      format.html { redirect_to consulta_url, notice: 'Consulta eliminada.' }
       format.json { head :no_content }
     end
   end

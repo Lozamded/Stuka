@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :veterinarios
   resources :consulta do
     resources :con_procs
+    resources :con_vets
   end
   resources :gastos
   resources :insumos

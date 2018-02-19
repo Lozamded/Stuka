@@ -1,0 +1,88 @@
+<!-- Modal -->
+<div id="editModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar Consulta</h4>
+      </div>
+      <div class="modal-body">
+
+        <%= form_with(model: @consultum, local: true) do |f| %>
+        <% if @consultum.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@consultum.errors.count, "error") %> prohibited this consultum from being saved:</h2>
+
+            <ul>
+            <% @consultum.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= f.label :fecha %>
+            <%= f.date_field :fecha, id: :consultum_fecha %>
+        </div>
+
+        <div class="field">
+            <%= f.label :tipo %>
+            <%= f.select :tipo, ['Interna','Externa'], {include_blank: "Seleccione"} %>
+        </div>
+
+
+        <strong>Veterinarios:</strong>
+
+        <div id="veterinarios" >
+            <div class="veterinarios-fields">
+            <%= f.fields_for :con_vets do |con_vet| %>
+                <%= render "veterinarios_fields", f: con_vet %>
+            <% end %>
+            </div>
+        </div>
+        
+        <strong>
+            <div class="links">
+                <%= link_to_add_association 'Añadir veterinario', f, :con_vets,
+                'data-association-insertion-node' =>  '.veterinarios-fields',
+                'data-association-insertion-method' => 'append', :class => 'col-xs-1',
+                partial: 'veterinarios_fields' %>
+            </div>
+        </strong>
+
+
+        <strong>Procedimientos realizados</strong>
+
+        <div id="procedimientos" >
+            <div class="procedimientos-fields">
+            <%= f.fields_for :con_procs do |con_proc| %>
+                <%= render "procedimientos_fields", f: con_proc %>
+            <% end %>
+            </div>
+        </div><br>
+        
+        <strong>
+            <div class="links">
+                <%= link_to_add_association 'Añadir procedimiento', f, :con_procs,
+                'data-association-insertion-node' =>  '.procedimientos-fields',
+                'data-association-insertion-method' => 'append', :class => 'col-xs-1',
+                partial: 'procedimientos_fields' %>
+            </div><br>
+        </strong>
+
+
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

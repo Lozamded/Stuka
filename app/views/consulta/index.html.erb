@@ -16,9 +16,9 @@
       <tr>
         <td><%= consultum.fecha %></td>
         <td><%= consultum.tipo %></td>
-        <td><%= link_to 'Show', consultum %></td>
-        <td><%= link_to 'Edit', edit_consultum_path(consultum) %></td>
-        <td><%= link_to 'Destroy', consultum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalle', consultum, :remote=>true  %></td>
+        <td><%= link_to 'Editar', edit_consultum_path(consultum), :remote=>true %></td>
+        <td><%= link_to 'Destroy', consultum, method: :delete, data: { confirm: 'Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,5 +26,10 @@
 
 <br>
 
-<%= link_to 'New Consultum', new_consultum_path %><br>
+<%= link_to 'Generar consulta', new_consultum_path, :remote=>true %><br>
 <%= link_to 'Volver', welcome_index_path %>
+
+
+<div id ="new-consulta" style = "display:noone;"></div>
+<div id ="edit-consulta" style = "display:noone;"></div>
+<div id ="show-consulta" style = "display:noone;"></div>
