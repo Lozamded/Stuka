@@ -6,8 +6,13 @@ class Consultum < ApplicationRecord
 
     has_many :con_vets, dependent: :destroy
     accepts_nested_attributes_for :con_vets,
-                                        reject_if: proc{ |attributes| attributes['nombre'].blank? },
-                                        allow_destroy: true
+                                    reject_if: proc{ |attributes| attributes['nombre'].blank? },
+                                    allow_destroy: true
+
+    has_many :con_ins, dependent: :destroy
+    accepts_nested_attributes_for :con_ins,
+                                    reject_if: proc{ |attributes| attributes['nombre'].blank? },
+                                    allow_destroy: true
 
     def to_s
         tipo

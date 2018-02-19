@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215163716) do
+ActiveRecord::Schema.define(version: 20180219173558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20180215163716) do
     t.datetime "updated_at", null: false
     t.bigint "consulta_id"
     t.index ["consulta_id"], name: "index_boleta_on_consulta_id"
+  end
+
+  create_table "con_ins", force: :cascade do |t|
+    t.string "nombre"
+    t.decimal "cant_actual"
+    t.bigint "consultum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consultum_id"], name: "index_con_ins_on_consultum_id"
   end
 
   create_table "con_procs", force: :cascade do |t|
@@ -119,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180215163716) do
 
   create_table "propietarios", force: :cascade do |t|
     t.string "nombre"
+    t.string "rut"
     t.date "fecha_nacimiento"
     t.string "email"
     t.string "telefono"
@@ -126,7 +136,6 @@ ActiveRecord::Schema.define(version: 20180215163716) do
     t.string "comuna"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rut"
     t.string "picture"
   end
 
@@ -156,7 +165,6 @@ ActiveRecord::Schema.define(version: 20180215163716) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", default: "", null: false
-    t.string "type", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -187,6 +195,7 @@ ActiveRecord::Schema.define(version: 20180215163716) do
   end
 
   add_foreign_key "boleta", "consulta", column: "consulta_id"
+  add_foreign_key "con_ins", "consulta"
   add_foreign_key "con_procs", "consulta"
   add_foreign_key "con_vets", "consulta"
   add_foreign_key "consulta", "perros"

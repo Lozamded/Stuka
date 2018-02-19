@@ -1,0 +1,2 @@
+module ConInsHelper
+end

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :con_vets
-  resources :con_procs
   get 'adpociones/new'
 
   devise_for :users, controllers: 
@@ -15,6 +13,7 @@ Rails.application.routes.draw do
   resources :consulta do
     resources :con_procs
     resources :con_vets
+    resources :con_ins
   end
   resources :gastos
   resources :insumos

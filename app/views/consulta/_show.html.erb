@@ -11,48 +11,81 @@
       <div class="modal-body">
 
         <% @precio_total = 0 %>
+        <% @precio_total_procedimiento = 0 %>
+        <% @precio_total_insumo = 0 %>
 
         <p>
-        <strong>Fecha:</strong>
-        <%= @consultum.fecha %>
+            <strong>Fecha:</strong>
+            <%= @consultum.fecha %>
         </p>
 
         <p>
-        <strong>Tipo:</strong>
-        <%= @consultum.tipo %>
+            <strong>Tipo:</strong>
+            <%= @consultum.tipo %>
+        </p>
+
+        <p>
+            <strong>Precio base:</strong>
+            <%= @consultum.precio %>
+            <% @precio_total += @consultum.precio%>
         </p>
 
 
         <p>
-        <strong>Veterinarios:</strong>
-        <% if @consultum.con_vets.any? %>
-            <ul>
-            <%@consultum.con_vets.each do |con_vet|%>
-                <li><%= con_vet %></li>
+            <strong>Paciente:</strong>
+            <% @perro =  Perro.where(id: @consultum.perro_id).first %>
+            <%= @perro.nombre%>
+        </p>
+
+
+        <p>
+            <strong>Veterinarios:</strong>
+            <% if @consultum.con_vets.any? %>
+                <ul>
+                <%@consultum.con_vets.each do |con_vet|%>
+                    <li><%= con_vet %></li>
+                <%end%>
+                </ul>
+            <%else%>
+            No hay veterinarios asignados
+            <% end %>
+        </p>
+
+        <p>
+            <strong>Procedimientos realizados:</strong>
+            <% if @consultum.con_procs.any? %>
+                <ul>
+                <%@consultum.con_procs.each do |con_proc|%>
+                    <% @proced = Procedimiento.where(descripcion: con_proc.procedimiento).first  %>
+                    <li><%= con_proc %> <strong>Precio: </strong> <%= @proced.precio %> </li>
+                    <% @precio_total_procedimiento += @proced.precio %>
+                <%end%>
+                </ul>
+            <%else%>
+            Sin procedimientos
+            <% end %>
+        </p>
+
+        <p>
+            <strong>Insumos utilizados:</strong>
+            <% if @consultum.con_ins.any? %>
+                <ul>
+                <%@consultum.con_ins.each do |con_in|%>
+                    <li><%= con_in.nombre%> <strong>Cantidad:</strong><%= con_in.cant_actual%> </li>
+                <%end%>
+                </ul>
+            <%else%>
+            No hay Insumos ingresados
             <%end%>
-            </ul>
-        <%else%>
-        No hay veterinarios asignados
-        <% end %>
         </p>
 
-        <p>
-        <strong>Procedimientos realizados:</strong>
-        <% if @consultum.con_procs.any? %>
-            <ul>
-            <%@consultum.con_procs.each do |con_proc|%>
-                <% @proced = Procedimiento.where(descripcion: con_proc.procedimiento).first  %>
-                <li><%= con_proc %> <strong>Precio: </strong> <%= @proced.precio %> </li>
-                <% @precio_total += @proced.precio %>
-            <%end%>
-            </ul>
-        <%else%>
-        Sin procedimientos
-        <% end %>
-        </p>
-
-        <strong> Precio total por procedimientos: </strong>
-        <%= @precio_total %><br>
+        <strong> Precio por procedimientos: </strong>
+        <%= @precio_total_procedimiento %><br>
+        <strong> Precio por insumos: </strong>
+        <%= @precio_total_insumo %><br>
+        <strong> Precio total: </strong>
+        <% @precio_total += @precio_total_insumo + @precio_total_procedimiento%>
+        <%= @precio_total%><br>
 
       </div>
       <div class="modal-footer">

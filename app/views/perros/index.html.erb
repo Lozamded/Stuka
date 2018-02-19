@@ -2,6 +2,7 @@
 
 
 <h2>Perros actuales en Stuka </h2>
+<%= link_to 'Tabla de detalles', perro_detalles_path(@perros) %><br><br>
 
 <%= link_to new_perro_path, :remote=>true do%> Agregar perro nuevo.
     <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
@@ -13,7 +14,6 @@
   </div>
 </div>
 
-<%= link_to 'Tabla de detalles', perro_detalles_path(@perros) %><br><br>
 
 <%= link_to 'Volver', welcome_index_path %><br>
 

@@ -33,6 +33,15 @@
             <%= f.select :tipo, ['Interna','Externa'], {include_blank: "Seleccione"} %>
         </div>
 
+        <div class="field">
+            <% f.label :precio %>Precio base
+            <%= f.number_field :precio, id: :consultum_precio %>
+        </div>
+  
+        <div class="field">
+            <% f.label :perro_id %>Paciente:
+            <%= f.collection_select :perro_id, Perro.order(:nombre), :id, :nombre %>
+        </div><br>
 
         <strong>Veterinarios:</strong>
 
@@ -50,7 +59,7 @@
                 'data-association-insertion-node' =>  '.veterinarios-fields',
                 'data-association-insertion-method' => 'append', :class => 'col-xs-1',
                 partial: 'veterinarios_fields' %>
-            </div>
+            </div><br>
         </strong>
 
 
@@ -62,7 +71,7 @@
                 <%= render "procedimientos_fields", f: con_proc %>
             <% end %>
             </div>
-        </div><br>
+        </div>
         
         <strong>
             <div class="links">
@@ -70,6 +79,26 @@
                 'data-association-insertion-node' =>  '.procedimientos-fields',
                 'data-association-insertion-method' => 'append', :class => 'col-xs-1',
                 partial: 'procedimientos_fields' %>
+            </div><br>
+        </strong>
+
+         
+        <strong>Insumos Utilizados</strong>
+
+        <div id="Insumos" >
+            <div class="insumos-fields">
+            <%= f.fields_for :con_ins do |con_in| %>
+                <%= render "insumos_fields", f: con_in %>
+            <% end %>
+            </div>
+        </div>
+        
+        <strong>
+            <div class="links">
+                <%= link_to_add_association 'Añadir insumo', f, :con_ins,
+                'data-association-insertion-node' =>  '.insumos-fields',
+                'data-association-insertion-method' => 'append', :class => 'col-xs-1',
+                partial: 'insumos_fields' %>
             </div><br>
         </strong>
 
