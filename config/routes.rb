@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :photos
   resources :anexos
   resources :merchandisings
   resources :suceso_perros

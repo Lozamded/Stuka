@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<figure class="figure">
+  <%= image_tag @merchandising.picture.medium.url, class: 'figure-img img-fluid rounded' %>
+  <figcaption class="figure-caption">
+    <strong><%= @merchandising.nombre%></strong>
+  </figcaption>
+</figure>
+
 <p>
   <strong>Nombre:</strong>
   <%= @merchandising.nombre %>
@@ -30,10 +37,6 @@
   <%= @merchandising.unidades %>
 </p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @merchandising.picture %>
-</p>
 
 <p>
   <strong>Proveedor:</strong>

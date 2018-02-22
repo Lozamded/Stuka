@@ -116,6 +116,30 @@
               <% end %>
           </p>
 
+
+          <p>
+              <strong>Fotos Adicionales:</strong>
+              <% if @perro.photos.any? %>
+                  <ul>
+                    <%@perro.photos.each do |photo|%>
+                        <li>
+                          <figure class="figure">
+                            <%= image_tag photo.picture.medium.url, class: 'figure-img img-fluid rounded' %>
+                            <figcaption class="figure-caption">
+                              <strong><%= photo.titulo%></strong>
+                              <%= photo.fecha %>
+                              <p><%= photo.comentario %></p>
+                            </figcaption>
+                          </figure>
+
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              No tiene mas fotos
+              <% end %>
+          </p>
+
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

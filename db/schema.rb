@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222181515) do
+ActiveRecord::Schema.define(version: 20180222191809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,17 @@ ActiveRecord::Schema.define(version: 20180222181515) do
     t.index ["socio_id"], name: "index_perros_on_socio_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "picture"
+    t.bigint "perro_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "fecha"
+    t.text "comentario"
+    t.string "titulo"
+    t.index ["perro_id"], name: "index_photos_on_perro_id"
+  end
+
   create_table "procedimientos", force: :cascade do |t|
     t.text "descripcion"
     t.bigint "precio"
@@ -262,6 +273,7 @@ ActiveRecord::Schema.define(version: 20180222181515) do
   add_foreign_key "merchandisings", "proveedors"
   add_foreign_key "perros", "propietarios"
   add_foreign_key "perros", "socios"
+  add_foreign_key "photos", "perros"
   add_foreign_key "suceso_perros", "perros"
   add_foreign_key "suceso_perros", "propietarios"
   add_foreign_key "suceso_perros", "socios"
