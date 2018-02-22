@@ -11,6 +11,7 @@
         <div class="modal-body">
 
           <% comentario = @perro.comentario  %>
+          <% senas = @perro.senas  %>
 
           <figure class="figure">
             <%= image_tag @perro.picture.medium.url, class: 'figure-img img-fluid rounded' %>
@@ -43,11 +44,6 @@
           </p>
 
           <p>
-            <strong>Fecha ingreso:</strong>
-            <%= @perro.fecha_ingreso %>
-          </p>
-
-          <p>
             <strong>Edad:</strong>
             <% fecha = @perro.fecha_nacimiento %>
             <%if fecha == nil%>
@@ -69,25 +65,6 @@
           </p>
 
           <p>
-              <strong>Fecha adopcion:</strong>
-              <% fecha = @perro.fecha_adopcion %>
-              <%if fecha == nil %>
-                Perro aun sin adoptar
-              <%else%>
-                <%= fecha %>
-              <%end%>
-          </p>
-
-          <p>
-            <% fecha_def = @perro.fecha_defuncion %>
-            <%if fecha_def == nil %>
-            <%else%>
-              <strong>Fecha defuncion:</strong>
-              <%= fecha %>
-            <%end%>
-          </p>
-
-          <p>
             <strong>Agresividad con otros perros:</strong>
             <%= @perro.agresividad_perro %>
           </p>
@@ -98,21 +75,13 @@
             <%= @perro.agresividad_perro %>
           </p>
 
-          <p>
-            <strong>Fecha ingreso:</strong>
-            <%= @perro.fecha_ingreso %>
-          </p>
 
           <p>
             <strong>Nombre del propietario:</strong>
-            <%= @perro.propietario.nombre %>
           </p>
 
           <p>
-            <% if @perro.propietario.nombre == "Stuka" %>
-              <strong>Padrino:</strong>
-              <%= @perro.socio.nombre %>
-            <%end%>
+            <strong>Padrino:</strong>
           </p>
 
           <p>
@@ -123,6 +92,29 @@
             <%end%>
           </p>
 
+          <p>
+            <strong>Señas:</strong>
+            <%if senas == nil or senas == '' %>
+              No hay señas ingresados.
+            <%else%>
+              <%= @perro.senas %>
+            <%end%>
+          </p>
+
+          <p>
+              <strong>Historial del perro:</strong>
+              <% if @perro.suceso_perros.any? %>
+                  <ul>
+                    <%@perro.suceso_perros.each do |suceso|%>
+                        <li>
+                          <%= link_to suceso.suceso, suceso %> <strong>Fecha: </strong> <%= suceso.fecha%>  
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              Sin movimientos
+              <% end %>
+          </p>
 
         </div>
       <div class="modal-footer">

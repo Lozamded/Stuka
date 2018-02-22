@@ -22,7 +22,8 @@ class PerrosController < ApplicationController
   # GET /perros/new
   def new
     @perro = Perro.new
-    #--1.times {@perro.propietarios.build}
+    1.times{@perro.suceso_perros.build}
+    #1.times {@perro.propietarios.build}
     respond_to do |f|
       f.js
     end
@@ -30,6 +31,7 @@ class PerrosController < ApplicationController
 
   # GET /perros/1/edit
   def edit
+    1.times{@perro.suceso_perros.build}
     respond_to do |f|
       f.js
     end
@@ -95,6 +97,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :raza, :sexo, :picture, :fecha_ingreso, :fecha_nacimiento, :fecha_adopcion, :fecha_defuncion, :peso, :porte, :agresividad_perro, :agresividad_persona, :comentario, :propietario_id, :socio_id, propietario_atributes: [:id,:nombre,:_destroy], socio_atributes:[:id,:nombre,:_destroy])
+      params.require(:perro).permit(:nombre, :raza, :sexo, :picture, :fecha_ingreso, :fecha_nacimiento, :fecha_adopcion, :fecha_defuncion, :peso, :porte, :agresividad_perro, :agresividad_persona, :senas, :comentario, :propietario_id, :socio_id, propietario_atributes: [:id,:nombre,:_destroy], socio_atributes:[:id,:nombre,:_destroy], suceso_perros_attributes:[:id,:suceso,:involucrado,:fecha,:propietario_id,:socio_id,:_destroy])
     end
 end

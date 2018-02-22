@@ -9,44 +9,45 @@
         <h4 class="modal-title">Nuevo Perro</h4>
       </div>
       <div class="modal-body">
-        <%= form_for @perro, :remote=> true do |form| %>
-        <% if @perro.errors.any? %>
-            <div id="error_explanation">
-            <h2><%= pluralize(@perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
-
-              <ul>
-                  <% @perro.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                  <% end %>
-              </ul>
-            </div>
-        <% end %>
-
-
-        <div class="field">
-            <%= form.label :nombre %>
-            <%= form.text_field :nombre, id: :perro_nombre %>
-        </div><br>
-
-        <div class="field">
-            <%= form.label :picture %>
-            <%= form.file_field :picture, id: :perro_picture %>
-        </div><br>
         
-        <div class="field">
-            <%= form.label :raza %>
-            <%= form.text_field :raza, id: :perro_raza %>
-        </div><br>
+        <%= form_for @perro, :remote=> true do |form| %>
+            <% if @perro.errors.any? %>
+                <div id="error_explanation">
+                <h2><%= pluralize(@perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
 
-        <div class="field">
-            <%= form.label :sexo %>
-            <%= form.select :sexo, ['Macho','Hembra'], {include_blank: "Seleccione"} %>
-        </div><br>
+                <ul>
+                    <% @perro.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+                </div>
+            <% end %>
 
-        <div class="field">
-            <%= form.label :peso %>
-            <%= form.number_field :peso, id: :perro_peso%> [Kg]
-        </div><br>
+
+            <div class="field">
+                <%= form.label :nombre %>
+                <%= form.text_field :nombre, id: :perro_nombre %>
+            </div><br>
+
+            <div class="field">
+                <%= form.label :picture %>
+                <%= form.file_field :picture, id: :perro_picture %>
+            </div><br>
+            
+            <div class="field">
+                <%= form.label :raza %>
+                <%= form.text_field :raza, id: :perro_raza %>
+            </div><br>
+
+            <div class="field">
+                <%= form.label :sexo %>
+                <%= form.select :sexo, ['Macho','Hembra'], {include_blank: "Seleccione"} %>
+            </div><br>
+
+            <div class="field">
+                <%= form.label :peso %>
+                <%= form.number_field :peso, id: :perro_peso%> [Kg]
+            </div><br>
 
             <div class="field">
                 <%= form.label :porte%>
@@ -54,19 +55,10 @@
             </div><br>
 
             <div class="field">
-                <%= form.label :fecha_ingreso %>
-                <%= form.date_field :fecha_ingreso, :value => Time.now.strftime('%Y-%m-%d'), id: :perro_fecha_ingreso %>
-            </div>
-
-            <div class="field">
                 <%= form.label :fecha_nacimiento %>(Aproximada, para poder estimar la edad del perro)<br>
                 <%= form.date_field :fecha_nacimiento, :value => Time.now.strftime('%Y-%m-%d') , id: :perro_fecha_nacimiento %>
             </div>
 
-            <div class="field">
-                <%= form.label :fecha_adopcion %>(Dejar en blanco para perro aun no adoptado)<br>
-                <%= form.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
-            </div><br>
 
             <div class="field">
                 <%= form.label :agresividad_perro %>
@@ -79,11 +71,16 @@
             </div>
 
             <div class="field">
-              <%= form.label :comentario %>(Descripción y detalles clínicos)<br>
-              <%= form.text_area :comentario, id: :perro_comentario %>
+                <% form.label :senas %>Señas<br>
+                <%= form.text_area :senas, id: :perro_senas %>
             </div><br>
 
-            <div class="field">}      
+            <div class="field">
+                <%= form.label :comentario %>(Descripción y detalles clínicos)<br>
+                <%= form.text_area :comentario, id: :perro_comentario %>
+            </div><br>
+<!--
+            <div class="field">     
                 <% opcion_stuka = Propietario.where(nombre: "Stuka").first %>
                 <%= form.label :propietario_id %>
                 <%= form.select :propietario_id,  options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, opcion_stuka.id ) %>
@@ -92,6 +89,14 @@
             <div class="field">
                 <%= form.label :socio_id %>
                 <%= form.select :socio_id,  options_for_select(Socio.all.collect { |p| [p.nombre, p.id] }, 1) %>
+            </div><br>
+-->
+             <div id="Suceso" >
+                <div class="suceso-fields">
+                <%= form.fields_for :suceso_perros do |suceso| %>
+                    <%= render "suceso_fields_new", f: suceso %>
+                <% end %>
+                </div>
             </div><br>
 
             <div class="actions">

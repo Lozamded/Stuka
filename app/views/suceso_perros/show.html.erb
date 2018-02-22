@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Suceso:</strong>
+  <%= @suceso_perro.suceso %>
+</p>
+
+<p>
+  <strong>Involucrado:</strong>
+  <%= @suceso_perro.involucrado %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @suceso_perro.fecha %>
+</p>
+
+<p>
+  <strong>Perro:</strong>
+  <%= @suceso_perro.perro %>
+</p>
+
+<p>
+  <strong>Socio:</strong>
+  <%= @suceso_perro.socio %>
+</p>
+
+<p>
+  <strong>Propietario:</strong>
+  <%= @suceso_perro.propietario %>
+</p>
+
+<%= link_to 'Edit', edit_suceso_perro_path(@suceso_perro) %> |
+<%= link_to 'back', perros_url %>

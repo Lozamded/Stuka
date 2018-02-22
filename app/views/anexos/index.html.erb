@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Anexos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>File</th>
+      <th>Comentario</th>
+      <th>Consulta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anexos.each do |anexo| %>
+      <tr>
+        <td><%= anexo.nombre %></td>
+        <td><%= anexo.file %></td>
+        <td><%= anexo.comentario %></td>
+        <td><%= anexo.consulta %></td>
+        <td><%= link_to 'Show', anexo %></td>
+        <td><%= link_to 'Edit', edit_anexo_path(anexo) %></td>
+        <td><%= link_to 'Destroy', anexo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anexo', new_anexo_path %>

@@ -57,8 +57,7 @@
                 <ul>
                 <%@consultum.con_procs.each do |con_proc|%>
                     <% @proced = Procedimiento.where(descripcion: con_proc.procedimiento).first  %>
-                    <li><%= con_proc %> <strong>Precio: </strong> <%= @proced.precio %> </li>
-                    <% @precio_total_procedimiento += @proced.precio %>
+
                 <%end%>
                 </ul>
             <%else%>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Proceso examen:</strong>
+  <%= @orden_examan.proceso_examen %>
+</p>
+
+<p>
+  <strong>Plazo examen:</strong>
+  <%= @orden_examan.plazo_examen %>
+</p>
+
+<p>
+  <strong>Fecha examen:</strong>
+  <%= @orden_examan.fecha_examen %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @orden_examan.comentario %>
+</p>
+
+<%= link_to 'Edit', edit_orden_examan_path(@orden_examan) %> |
+<%= link_to 'Back', orden_examen_path %>

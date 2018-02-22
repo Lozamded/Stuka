@@ -1,0 +1,37 @@
+<%= form_with(model: anexo, local: true) do |form| %>
+  <% if anexo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(anexo.errors.count, "error") %> prohibited this anexo from being saved:</h2>
+
+      <ul>
+      <% anexo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :anexo_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.text_field :file, id: :anexo_file %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentario %>
+    <%= form.text_area :comentario, id: :anexo_comentario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :consulta_id %>
+    <%= form.text_field :consulta_id, id: :anexo_consulta_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

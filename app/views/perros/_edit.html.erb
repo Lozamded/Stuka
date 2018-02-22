@@ -21,8 +21,6 @@
                 </div>
             <% end %><br>
 
-            <% propietario = @perro.propietario.nombre %>
-
             <div class="field">
               <%= f.label :nombre %>
               <%= f.text_field :nombre, id: :perro_nombre %>
@@ -54,26 +52,9 @@
             </div><br>
 
             <div class="field">
-              <%= f.label :fecha_ingreso %><br>
-              <%= f.date_field :fecha_ingreso, id: :perro_fecha_ingreso %>
-            </div>
-
-            <div class="field">
               <%= f.label :fecha_nacimiento %>(Estimada)<br>
               <%= f.date_field :fecha_nacimiento, id: :perro_fecha_nacimiento %>
             </div>
-
-            <div class="field">
-              <%= f.label :fecha_adopcion %>
-              <p>(Dejar en blanco si aun no ha sido adoptado)</p>
-              <%= f.date_field :fecha_adopcion, id: :perro_fecha_adopcion %>
-            </div>
-
-            <div class="field">
-              <%= f.label :fecha_defuncion, "Fecha de deceso" %>
-              <p>(Dejar en blanco para perro vivo)</p>
-              <%= f.date_field :fecha_defuncion, id: :perro_fecha_defuncion %>
-            </div><br>
 
             <div class="field">
               <%= f.label :agresividad_perro, "Agresividad con otros perros" %>
@@ -86,25 +67,26 @@
             </div><br>
 
             <div class="field">
+              <% f.label :senas %>Señas<br>
+              <%= f.text_area :senas, id: :perro_senas %>
+            </div><br>
+
+            <div class="field">
               <%= f.label :comentario %>(Descripción y detalles clínicos)<br>
               <%= f.text_area :comentario, id: :perro_comentario %>
             </div><br>
 
-            <div class="field">
-              <%= f.label :propietario_id %>
-              <%= f.select :propietario_id, Propietario.all.collect { |p| [p.nombre, p.id] } %>
-            </div>
-
-            <% if propietario == 'Stuka' %>
-              <%= f.label :socio_id %>
-              <%= f.select :socio_id, Socio.all.collect { |p| [p.nombre, p.id] } %>
-              <br>
-            <%else%>
-              <%= f.label :socio_id %>
-              <%= f.select :socio_id, options_for_select(Socio.all.collect { |p| [p.nombre, p.id] }, 1 ) %>
-              <br>
-            <%end%>
-
+            <strong>Registrar suceso</strong><br>
+            
+            <div id="Suceso" >
+                <div class="suceso-fields">
+                <%= f.fields_for :suceso_perros do |suceso| %>
+                    <% @this = suceso.object%>
+                    <%= render "suceso_fields", f: suceso %>
+                <% end %>
+                </div>
+            </div><br>
+  
             <div class="actions">
               <%= f.submit %>
             </div><br>

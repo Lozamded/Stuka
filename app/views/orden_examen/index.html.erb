@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orden Examen</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Proceso examen</th>
+      <th>Plazo examen</th>
+      <th>Fecha examen</th>
+      <th>Comentario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orden_examen.each do |orden_examan| %>
+      <tr>
+        <td><%= orden_examan.proceso_examen %></td>
+        <td><%= orden_examan.plazo_examen %></td>
+        <td><%= orden_examan.fecha_examen %></td>
+        <td><%= orden_examan.comentario %></td>
+        <td><%= link_to 'Show', orden_examan %></td>
+        <td><%= link_to 'Edit', edit_orden_examan_path(orden_examan) %></td>
+        <td><%= link_to 'Destroy', orden_examan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Orden Examan', new_orden_examan_path %>

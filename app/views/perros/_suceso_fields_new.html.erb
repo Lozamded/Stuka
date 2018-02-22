@@ -1,0 +1,8 @@
+<div class="nested-fields">
+    <div class="field">
+        <% f.label :suceso %><strong>Ingreso: </strong>
+        <%= f.select :suceso, ['Ingreso'], {include_blank: "Externo"}  %><br>       
+        <%= f.label :fecha %>
+        <%= f.date_field :fecha , :value => Time.now.strftime('%Y-%m-%d')%><br>
+    </div>
+</div>

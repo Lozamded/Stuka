@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  resources :anexos
+  resources :merchandisings
+  resources :suceso_perros
   get 'adpociones/new'
 
   devise_for :users, controllers: 
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :veterinarios
   resources :consulta do
+    resources :orden_examen
     resources :con_procs
     resources :con_vets
     resources :con_ins
@@ -20,8 +25,10 @@ Rails.application.routes.draw do
   resources :boleta
   resources :socios
   resources :proveedors
+  resources :proceso_examen
   resources :procedimientos
   resources :perros do
+
     get 'detalles', to: 'perros#detalle'
     get 'adopt', to: 'perros#adopt'
   end

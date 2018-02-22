@@ -1,0 +1,24 @@
+<div class="nested-fields">
+    <div class="field">
+        
+        <%= f.label :suceso %>
+        <%= f.select :suceso, ['Ingreso','Adopción','Reingreso','Apadrinación','Deceso'], {include_blank: "Ninguno"} %><br>       
+        <%= f.label :fecha %>
+        <% if @this != nil %>
+            <% @fecha= @this.fecha %>
+        <%else%>
+            <% @fecha= Time.now.strftime('%Y-%m-%d') %>
+        <%end%>
+        <%= f.date_field :fecha, :value=>@fecha , id: :suceso_perro_fecha %><br>
+
+            <% f.label :propietario_id%>Propietario del perro:
+            <% opcion_stuka = Propietario.where(nombre: "Stuka").first %>
+            <%= f.select :propietario_id,  options_for_select(Propietario.all.collect { |p| [p.nombre, p.id] }, opcion_stuka.id ) %><br>
+        
+            <% f.label :socio_id%>Socio Involucrado:
+            <%= f.select :socio_id,  options_for_select(Socio.all.collect { |p| [p.nombre, p.id] }) %><br>
+        
+        <%= link_to_remove_association "Eliminar Suceso", f %><br><br>
+    </div>
+</div>
+    
