@@ -1,0 +1,11 @@
+  <div class="nested-fields">
+    <div class="field">
+      <%= f.label :nombre %><br>
+      <%= f.text_field :nombre %><br>
+      <%= f.label :file%>
+      <%= f.file_field :file%><br>
+      <%= f.label :comentario%>
+      <%= f.text_area :comentario%><br>
+      <%= link_to_remove_association "Eliminar Anexo", f %>
+    </div>
+  </div>

@@ -102,11 +102,51 @@
             </div><br>
         </strong>
 
+        
+        <strong>Examenes</strong>
 
-        <div class="actions">
-            <%= f.submit %>
+        <div id="Examen" >
+            <div class="orden_examenes-fields">
+            <%= f.fields_for :orden_examen do |examen| %>
+                <%= render "orden_examenes_fields", f: examen %>
+            <% end %>
+            </div>
         </div>
-        <% end %>
+        
+        <strong>
+            <div class="links">
+                <%= link_to_add_association 'Añadir examen', f, :orden_examen,
+                'data-association-insertion-node' =>  '.orden_examenes-fields',
+                'data-association-insertion-method' => 'append', :class => 'col-xs-1',
+                partial: 'orden_examenes_fields' %>
+            </div><br>
+        </strong>
+
+        <strong>Anexos</strong>
+
+        <div id="Anexos" >
+            <div class="anexos-fields">
+            <%= f.fields_for :anexos do |anexo| %>
+                <%= render "anexos_fields", f: anexo %>
+            <% end %>
+            </div>
+        </div>
+        
+        <strong>
+            <div class="links">
+                <%= link_to_add_association 'Añadir insumo', f, :anexos,
+                'data-association-insertion-node' =>  '.anexos-fields',
+                'data-association-insertion-method' => 'append', :class => 'col-xs-1',
+                partial: 'anexos_fields' %>
+            </div><br>
+        </strong>
+
+
+
+                <div class="actions">
+                    <%= f.submit %>
+                </div>
+                <% end %>
 
       </div>
       <div class="modal-footer">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222191809) do
+ActiveRecord::Schema.define(version: 20180225235018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20180222191809) do
     t.string "nombre"
     t.string "file"
     t.text "comentario"
-    t.bigint "consulta_id"
+    t.bigint "consultum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["consulta_id"], name: "index_anexos_on_consulta_id"
+    t.index ["consultum_id"], name: "index_anexos_on_consultum_id"
   end
 
   create_table "boleta", force: :cascade do |t|
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 20180222191809) do
     t.text "comentario"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "consultum_id"
+    t.index ["consultum_id"], name: "index_orden_examen_on_consultum_id"
   end
 
   create_table "perros", force: :cascade do |t|
@@ -261,7 +263,7 @@ ActiveRecord::Schema.define(version: 20180222191809) do
     t.string "tipo"
   end
 
-  add_foreign_key "anexos", "consulta", column: "consulta_id"
+  add_foreign_key "anexos", "consulta"
   add_foreign_key "boleta", "consulta", column: "consulta_id"
   add_foreign_key "con_ins", "consulta"
   add_foreign_key "con_procs", "consulta"
@@ -271,6 +273,7 @@ ActiveRecord::Schema.define(version: 20180222191809) do
   add_foreign_key "consulta", "veterinarios"
   add_foreign_key "insumos", "proveedors"
   add_foreign_key "merchandisings", "proveedors"
+  add_foreign_key "orden_examen", "consulta"
   add_foreign_key "perros", "propietarios"
   add_foreign_key "perros", "socios"
   add_foreign_key "photos", "perros"

@@ -22,6 +22,8 @@ class ConsultaController < ApplicationController
     1.times{@consultum.con_procs.build}
     1.times{@consultum.con_vets.build}
     1.times{@consultum.con_ins.build}
+    1.times{@consultum.orden_examen.build}
+    1.times{@consultum.anexos.build}
     respond_to do |f|
       f.js
     end
@@ -32,6 +34,8 @@ class ConsultaController < ApplicationController
     1.times{@consultum.con_procs.build}
     1.times{@consultum.con_vets.build}
     1.times{@consultum.con_ins.build}
+    1.times{@consultum.orden_examen.build}
+    1.times{@consultum.anexos.build}
     respond_to do |f|
       f.js
     end
@@ -85,6 +89,6 @@ class ConsultaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consultum_params
-      params.require(:consultum).permit(:fecha, :tipo, :perro_id, :precio, perro_attributes:[:id, :nombre, :_destroy] ,con_procs_attributes:[:id, :procedimiento, :_destroy],con_vets_attributes:[:id, :nombre, :_destroy],con_ins_attributes:[:id, :nombre, :cant_actual, :_destroy])
+      params.require(:consultum).permit(:fecha, :tipo, :perro_id, :precio, perro_attributes:[:id, :nombre, :_destroy] ,con_procs_attributes:[:id, :procedimiento, :_destroy],con_vets_attributes:[:id, :nombre, :_destroy],con_ins_attributes:[:id, :nombre, :cant_actual, :_destroy],orden_examen_attributes:[:proceso_examen,:plazo_examen,:fecha_examen,:comentario,:_destroy],anexos_attributes:[:nombre,:fecha,:comentario,:_destroy])
     end
 end

@@ -69,6 +69,6 @@ class OrdenExamenController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_examan_params
-      params.require(:orden_examan).permit(:proceso_examen, :plazo_examen, :fecha_examen, :comentario)
+      params.require(:orden_examan).permit(:proceso_examen, :plazo_examen, :fecha_examen, :comentario,:consultum_id)
     end
 end

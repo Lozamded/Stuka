@@ -69,6 +69,6 @@ class AnexosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anexo_params
-      params.require(:anexo).permit(:nombre, :file, :comentario, :consulta_id)
+      params.require(:anexo).permit(:nombre, :file, :comentario, :consultum_id)
     end
 end

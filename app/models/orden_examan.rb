@@ -1,3 +1,3 @@
 class OrdenExaman < ApplicationRecord
-    belongs_to consulta, optional: true
+    belongs_to :consulta, optional: true
 end
