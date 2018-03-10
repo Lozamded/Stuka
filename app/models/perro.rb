@@ -1,6 +1,14 @@
 class Perro < ApplicationRecord
-  belongs_to :propietario
-  belongs_to :socio, optional: true
+
   mount_uploader :picture, PictureUploader
-  #accepts_nested_attributes_for :propietario, reject_if: :all_blank, allow_destroy: true;
+  
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos,
+                                  reject_if: proc{ |attributes| attributes['titulo'].blank? },
+                                  allow_destroy: true
+
+  has_many :suceso_perros, dependent: :destroy
+  accepts_nested_attributes_for :suceso_perros,
+                                  reject_if: proc{ |attributes| attributes['suceso'].blank? },
+                                  allow_destroy: true
 end

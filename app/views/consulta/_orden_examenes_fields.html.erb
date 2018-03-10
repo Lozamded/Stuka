@@ -1,0 +1,15 @@
+  <div class="nested-fields">
+    <div class="field">
+      <%= f.label :proceso_examen %>
+      <%= f.select :proceso_examen, ProcesoExaman.all.collect { |p| [p.proceso, p.proceso] }, {include_blank: "Ninguno"}  %>
+      <%= f.check_box :_destroy, :value=> 0  %>
+      <%= f.label :_destroy ,'Eliminar' %><br>
+      <%= f.label :plazo_examen%>
+      <%= f.number_field :plazo_examen%> Días<br>
+      <%= f.label :fecha_examen%>
+      <%= f.date_field :fecha_examen%><br>
+      <%= f.label :comentario%>
+      <%= f.text_area :comentario%><br>
+      <%= link_to_remove_association "Eliminar examen", f %>
+    </div>
+  </div>

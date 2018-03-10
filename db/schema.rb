@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180220022641) do
+=======
+ActiveRecord::Schema.define(version: 20180225235018) do
+>>>>>>> 4fedab88aab9a9ab18894b2a3f8522a94f11351a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anexos", force: :cascade do |t|
+    t.string "nombre"
+    t.string "file"
+    t.text "comentario"
+    t.bigint "consultum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consultum_id"], name: "index_anexos_on_consultum_id"
+  end
 
   create_table "boleta", force: :cascade do |t|
     t.date "fecha"
@@ -31,6 +45,7 @@ ActiveRecord::Schema.define(version: 20180220022641) do
     t.bigint "consultum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "unidades"
     t.index ["consultum_id"], name: "index_con_ins_on_consultum_id"
   end
 
@@ -92,7 +107,33 @@ ActiveRecord::Schema.define(version: 20180220022641) do
     t.date "fecha_compra"
     t.bigint "unidades"
     t.string "picture"
+    t.date "fecha_vencimiento"
     t.index ["proveedor_id"], name: "index_insumos_on_proveedor_id"
+  end
+
+  create_table "merchandisings", force: :cascade do |t|
+    t.string "nombre"
+    t.string "tipo"
+    t.decimal "precio_costo"
+    t.decimal "precio_venta"
+    t.text "descripcion"
+    t.bigint "unidades"
+    t.string "picture"
+    t.bigint "proveedor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proveedor_id"], name: "index_merchandisings_on_proveedor_id"
+  end
+
+  create_table "orden_examen", force: :cascade do |t|
+    t.string "proceso_examen"
+    t.bigint "plazo_examen"
+    t.date "fecha_examen"
+    t.text "comentario"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "consultum_id"
+    t.index ["consultum_id"], name: "index_orden_examen_on_consultum_id"
   end
 
   create_table "perros", force: :cascade do |t|
@@ -113,8 +154,20 @@ ActiveRecord::Schema.define(version: 20180220022641) do
     t.string "agresividad_perro"
     t.string "agresividad_persona"
     t.string "raza"
+    t.text "senas"
     t.index ["propietario_id"], name: "index_perros_on_propietario_id"
     t.index ["socio_id"], name: "index_perros_on_socio_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "picture"
+    t.bigint "perro_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "fecha"
+    t.text "comentario"
+    t.string "titulo"
+    t.index ["perro_id"], name: "index_photos_on_perro_id"
   end
 
   create_table "procedimientos", force: :cascade do |t|
@@ -122,6 +175,12 @@ ActiveRecord::Schema.define(version: 20180220022641) do
     t.bigint "precio"
     t.bigint "precio_sruka"
     t.string "precio_costo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "proceso_examen", force: :cascade do |t|
+    t.string "proceso"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -162,6 +221,20 @@ ActiveRecord::Schema.define(version: 20180220022641) do
     t.string "picture"
   end
 
+  create_table "suceso_perros", force: :cascade do |t|
+    t.string "suceso"
+    t.string "involucrado"
+    t.string "fecha"
+    t.bigint "perro_id"
+    t.bigint "socio_id"
+    t.bigint "propietario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["perro_id"], name: "index_suceso_perros_on_perro_id"
+    t.index ["propietario_id"], name: "index_suceso_perros_on_propietario_id"
+    t.index ["socio_id"], name: "index_suceso_perros_on_socio_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", default: "", null: false
@@ -195,6 +268,7 @@ ActiveRecord::Schema.define(version: 20180220022641) do
     t.string "tipo"
   end
 
+  add_foreign_key "anexos", "consulta"
   add_foreign_key "boleta", "consulta", column: "consulta_id"
   add_foreign_key "con_ins", "consulta"
   add_foreign_key "con_vets", "consulta"
@@ -202,6 +276,12 @@ ActiveRecord::Schema.define(version: 20180220022641) do
   add_foreign_key "consulta", "procedimientos"
   add_foreign_key "consulta", "veterinarios"
   add_foreign_key "insumos", "proveedors"
+  add_foreign_key "merchandisings", "proveedors"
+  add_foreign_key "orden_examen", "consulta"
   add_foreign_key "perros", "propietarios"
   add_foreign_key "perros", "socios"
+  add_foreign_key "photos", "perros"
+  add_foreign_key "suceso_perros", "perros"
+  add_foreign_key "suceso_perros", "propietarios"
+  add_foreign_key "suceso_perros", "socios"
 end

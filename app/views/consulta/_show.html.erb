@@ -57,8 +57,7 @@
                 <ul>
                 <%@consultum.con_procs.each do |con_proc|%>
                     <% @proced = Procedimiento.where(descripcion: con_proc.procedimiento).first  %>
-                    <li><%= con_proc %> <strong>Precio: </strong> <%= @proced.precio %> </li>
-                    <% @precio_total_procedimiento += @proced.precio %>
+
                 <%end%>
                 </ul>
             <%else%>
@@ -76,6 +75,20 @@
                 </ul>
             <%else%>
             No hay Insumos ingresados
+            <%end%>
+        
+        </p>
+        
+                <p>
+            <strong>Examenes a realizar:</strong>
+            <% if @consultum.orden_examen.any? %>
+                <ul>
+                <%@consultum.orden_examen.each do |examen|%>
+                    <li><%= examen.proceso_examen%> <strong>Fecha:</strong><%= examen.fecha_examen%> <strong>Plazo:</strong><%= examen.plazo_examen%>días </li>
+                <%end%>
+                </ul>
+            <%else%>
+            No hay examenes solicitados
             <%end%>
         </p>
 

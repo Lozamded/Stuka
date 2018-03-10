@@ -1,0 +1,57 @@
+<%= form_with(model: merchandising, local: true) do |form| %>
+  <% if merchandising.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(merchandising.errors.count, "error") %> prohibited this merchandising from being saved:</h2>
+
+      <ul>
+      <% merchandising.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :merchandising_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :merchandising_tipo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_costo %>
+    <%= form.text_field :precio_costo, id: :merchandising_precio_costo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_venta %>
+    <%= form.text_field :precio_venta, id: :merchandising_precio_venta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :merchandising_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidades %>
+    <%= form.text_field :unidades, id: :merchandising_unidades %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :merchandising_picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :proveedor_id %>
+    <%= form.text_field :proveedor_id, id: :merchandising_proveedor_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

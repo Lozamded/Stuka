@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<figure class="figure">
+  <%= image_tag @merchandising.picture.medium.url, class: 'figure-img img-fluid rounded' %>
+  <figcaption class="figure-caption">
+    <strong><%= @merchandising.nombre%></strong>
+  </figcaption>
+</figure>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @merchandising.nombre %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @merchandising.tipo %>
+</p>
+
+<p>
+  <strong>Precio costo:</strong>
+  <%= @merchandising.precio_costo %>
+</p>
+
+<p>
+  <strong>Precio venta:</strong>
+  <%= @merchandising.precio_venta %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @merchandising.descripcion %>
+</p>
+
+<p>
+  <strong>Unidades:</strong>
+  <%= @merchandising.unidades %>
+</p>
+
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @merchandising.proveedor %>
+</p>
+
+<%= link_to 'Edit', edit_merchandising_path(@merchandising) %> |
+<%= link_to 'Back', merchandisings_path %>

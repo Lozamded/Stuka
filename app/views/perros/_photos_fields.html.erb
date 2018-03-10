@@ -1,0 +1,24 @@
+<div class="nested-fields">
+
+    <div class="field">
+        <%= f.label :picture %>
+        <%= f.file_field :picture, id: :photo_picture %>
+    </div>
+
+    <div class="field">
+        <%= f.label :titulo %>(Obligatorio)
+        <%= f.text_field :titulo, id: :photo_titulo  %>
+    </div>
+
+    <div class="field">
+        <%= f.label :fecha %>
+        <%= f.date_field :fecha, id: :photo_fecha %>
+    </div>
+
+    <div class="field">
+        <%= f.label :comentario %>
+        <%= f.text_area :comentario, id: :photo_comentario %>
+    </div><br>
+
+    <%= link_to_remove_association "Eliminar foto", f %>
+</div>

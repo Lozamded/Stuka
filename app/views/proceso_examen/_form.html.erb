@@ -1,0 +1,22 @@
+<%= form_with(model: proceso_examan, local: true) do |form| %>
+  <% if proceso_examan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proceso_examan.errors.count, "error") %> prohibited this proceso_examan from being saved:</h2>
+
+      <ul>
+      <% proceso_examan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :proceso %>
+    <%= form.text_field :proceso, id: :proceso_examan_proceso %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

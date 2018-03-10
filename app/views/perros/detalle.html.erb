@@ -6,6 +6,7 @@
     <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i>
 <%end%>
 
+
 <table>
   <thead>
     <tr>
@@ -15,8 +16,9 @@
       <th>Sexo</th>
       <th>Peso</th>
       <th>Tamaño</th>
+      <th>Tipo</th>
       <th>Fecha ingreso</th>
-      <th>Fecha adopción</th>
+      <th>Adopciones</th>
       <th>Fecha deceso</th>
       <th>Propietario </th>
       <th>Padrino</th>
@@ -26,6 +28,22 @@
 
   <tbody>
     <% @perros.each do |perro| %>
+    <% @ultimo = perro.suceso_perros.last %>
+    <% @primero = perro.suceso_perros.first %>
+
+    <% if @ultimo != nil %>
+      <% if (@ultimo.suceso == "Ingreso" || @ultimo.suceso == "Reingreso" || @ultimo.suceso == "Apadrinación")%>
+        <% @tipo = "Interno" %>
+      <%else%>
+        <% if @ultimo.suceso == "Deceso"%>
+          <% if @primero.suceso == "Ingreso"%>
+            <% @tipo= "Interno"%>
+          <%end%>
+        <%end%>
+      <% end%>
+    <%else%>
+      <% @tipo = "Externo" %>
+    <%end%>
       <tr>
         <td><%= perro.nombre %></td>
         <td><%= perro.raza %></td>
@@ -51,19 +69,44 @@
         <td><%= perro.sexo %></td>
         <td><%= perro.peso %>[Kg]</td>
         <td><%= perro.porte %></td>
-        <td><%= perro.fecha_ingreso %></td>
+        <th>
+          <%= @tipo %>
+        </th>
         <td>
-            <% if (perro.fecha_adopcion == '' or perro.fecha_adopcion == nil) %>No adoptado
-            <%else%><%= perro.fecha_adopcion%>
+            <% if (perro.suceso_perros.any? ) %>
+              <% @ingreso = perro.suceso_perros.where(suceso: "Ingreso").first %>
+              <%  if @ingreso != nil %>
+                <%= @ingreso.fecha %>
+              <%else%>No ingresada.
+              <%end%>
+            <%else%>Desconocida.
             <%end%>
         </td>
         <td>
-            <% if (perro.fecha_defuncion == '' or perro.fecha_defuncion == nil) %>Vivo
-            <%else%><%= perro.fecha_defuncion%>
+            <% if (perro.suceso_perros.any? ) %>
+              <% @adopcion = perro.suceso_perros.where(suceso: "Adopción").count %>
+                <% if @adopcion != nil %>
+                  <%= @adopcion %>
+                <%else%>
+                <%end%>
+            <%else%>Desconocida.
             <%end%>
         </td>
-        <td><%= perro.propietario.nombre %></td>
-        <td><%= perro.socio.nombre %></td>
+        <td>
+            <% if (perro.suceso_perros.any? ) %>
+              <% @deceso = perro.suceso_perros.where(suceso: "Deceso").first %>
+              <%  if @deceso != nil %>
+                <%= @deceso.fecha %>
+              <%else%>Vivo
+              <%end%>
+            <%else%>Vivo
+            <%end%>
+        </td>
+        <td>
+          <% if ( perro.suceso_perros.any? ) %>
+          <%end%>
+        </td>
+        <td>Nombre Socio</td>
         <td>
           <%= link_to perro, :remote=>true do %>
             Detalle<span class="fa fa-eye"></span>

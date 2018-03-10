@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  suceso: MyString
+  involucrado: MyString
+  fecha: MyString
+  perro: one
+  socio: one
+  propietario: one
+
+two:
+  suceso: MyString
+  involucrado: MyString
+  fecha: MyString
+  perro: two
+  socio: two
+  propietario: two

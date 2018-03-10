@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proceso_examen: MyString
+  plazo_examen: 
+  fecha_examen: 2018-02-21
+  comentario: MyText
+
+two:
+  proceso_examen: MyString
+  plazo_examen: 
+  fecha_examen: 2018-02-21
+  comentario: MyText

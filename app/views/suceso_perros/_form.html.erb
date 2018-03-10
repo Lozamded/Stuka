@@ -1,0 +1,47 @@
+<%= form_with(model: suceso_perro, local: true) do |form| %>
+  <% if suceso_perro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(suceso_perro.errors.count, "error") %> prohibited this suceso_perro from being saved:</h2>
+
+      <ul>
+      <% suceso_perro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :suceso %>
+    <%= form.text_field :suceso, id: :suceso_perro_suceso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :involucrado %>
+    <%= form.text_field :involucrado, id: :suceso_perro_involucrado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.text_field :fecha, id: :suceso_perro_fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :perro_id %>
+    <%= form.text_field :perro_id, id: :suceso_perro_perro_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :socio_id %>
+    <%= form.text_field :socio_id, id: :suceso_perro_socio_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :propietario_id %>
+    <%= form.text_field :propietario_id, id: :suceso_perro_propietario_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

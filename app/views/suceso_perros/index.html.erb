@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Suceso Perros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suceso</th>
+      <th>Involucrado</th>
+      <th>Fecha</th>
+      <th>Perro</th>
+      <th>Socio</th>
+      <th>Propietario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suceso_perros.each do |suceso_perro| %>
+      <tr>
+        <td><%= suceso_perro.suceso %></td>
+        <td><%= suceso_perro.involucrado %></td>
+        <td><%= suceso_perro.fecha %></td>
+        <td><%= suceso_perro.perro.nombre %></td>
+        <td><%= suceso_perro.socio %></td>
+        <td><%= suceso_perro.propietario %></td>
+        <td><%= link_to 'Show', suceso_perro %></td>
+        <td><%= link_to 'Edit', edit_suceso_perro_path(suceso_perro) %></td>
+        <td><%= link_to 'Destroy', suceso_perro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

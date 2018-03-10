@@ -1,0 +1,37 @@
+<%= form_with(model: orden_examan, local: true) do |form| %>
+  <% if orden_examan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orden_examan.errors.count, "error") %> prohibited this orden_examan from being saved:</h2>
+
+      <ul>
+      <% orden_examan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :proceso_examen %>
+    <%= form.text_field :proceso_examen, id: :orden_examan_proceso_examen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plazo_examen %>
+    <%= form.text_field :plazo_examen, id: :orden_examan_plazo_examen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_examen %>
+    <%= form.date_select :fecha_examen, id: :orden_examan_fecha_examen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentario %>
+    <%= form.text_area :comentario, id: :orden_examan_comentario %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
